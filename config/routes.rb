@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     patch 'users/withdraw', as: 'withdraw'
     resources :users, only:[:show,:edit,:update]
     
-    resources :post do
+    resources :posts do
       resource :favorites, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
