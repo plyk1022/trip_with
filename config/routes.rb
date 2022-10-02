@@ -1,26 +1,30 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'users/index'
-    get 'users/show'
-    get 'users/edit'
-  end
+  
+  devise_for :users, controllers: {
+  registrations: "public/registrations",
+  sessions: 'public/sessions'
+  }
+  
+  devise_for :admin, controllers: {
+  sessions: "admin/sessions"
+  }
+  
   namespace :admin do
     get 'homes/top'
+    resources :users, only:[:index,:show,:edit,:update]
   end
-  namespace :public do
-    get 'users/show'
-    get 'users/edit'
+ 
+  scope module: :public do
+    root to: 'homes#top'
+    get 'about' => 'homes#about', as: 'about'
+    get 'users/unsubscribe', as: 'unsubscribe'
+    patch 'users/withdraw', as: 'withdraw'
+    resources :users, only:[:show,:edit,:update]
+    
+    resources :post do
+      resource :favorites, only: [:create, :destroy]
+      resources :comments, only: [:create, :destroy]
+    end
   end
-  namespace :public do
-    get 'posts/index'
-    get 'posts/show'
-    get 'posts/edit'
-  end
-  namespace :public do
-    get 'homes/top'
-    get 'homes/about'
-  end
-  devise_for :admins
-  devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
