@@ -5,7 +5,7 @@ class CreateSpots < ActiveRecord::Migration[6.1]
       t.string :name, null: false
       t.text :comment, null: false
       t.time :arriving_time, null: false
-      t.time :learving_time, null: false
+      t.time :leaving_time, null: false
 
       t.timestamps
     end
