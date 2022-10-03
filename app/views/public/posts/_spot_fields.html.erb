@@ -16,7 +16,11 @@
   <div class = 'fields'>
     <%= f.label :leaving_time %><br>
     <%= f.time_field :leaving_time %>
+  </div>
 
+  <div class = 'fields'>
+    <%= f.label :image %><br>
+    <%= f.file_field :image, accept: "image/*" %>
   </div>
 
     <%= link_to_remove_association "スポット削除", f %>
