@@ -1,0 +1,23 @@
+<div class = 'nested-fields'>
+  <div class = 'fields'>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class = 'fields'>
+    <%= f.label :comment %>
+    <%= f.text_area :comment %>
+  
+  </div>
+  <div class = 'fields'>
+    <%= f.label :arriving_time %>
+    <%= f.time_field :arriving_time %>
+  
+  </div>
+  <div class = 'fields'>
+    <%= f.label :leaving_time %>
+    <%= f.time_field :leaving_time %>
+  
+  </div>
+  
+    <%= link_to_remove_association "スポット削除", f %>
+</div>

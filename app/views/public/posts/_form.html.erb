@@ -1,0 +1,30 @@
+<%= form_with model: post do |f| %>
+
+
+  
+
+  <div class = 'field'>
+    <%= f.label :title, 'タイトル' %>
+    <%= f.text_field :title %>
+  </div>
+  
+  <div class = 'field'>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+  
+  <div class = 'schedules'>
+    <%= f.fields_for :schedules do |schedule| %>
+      <%= render 'schedule_fields', f: schedule %>
+    <% end %>
+    
+    <div class = 'links'>
+      <%= link_to_add_association "日程追加", f, :schedules %>
+    </div>
+  </div>
+  
+  <div class = 'submit-button'>
+    <%= f.submit '投稿' %>
+  </div>
+
+<% end %>
