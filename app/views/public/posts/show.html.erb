@@ -1,2 +1,36 @@
-<h1>Public::Posts#show</h1>
-<p>Find me in app/views/public/posts/show.html.erb</p>
+
+<h1><%= @post.title %></h1>
+
+<p><%= @post.body %></p>
+
+<% @post.prefecture_relations.each do |pref| %>
+  <span><%= pref.prefecture.name %></span>
+<% end %>
+
+
+
+<div class = 'card'>
+  
+    <% @post.schedules.each do |schedule| %>
+    <div class = 'card-header'>
+  <%=schedule.day %>
+    
+  </div>
+  
+  
+
+
+
+
+    <% schedule.spots.each do |spot| %>
+      <%= spot.name %>
+      <%= spot.comment %>
+
+    <% end %>
+
+<% end %>
+  
+  
+</div>
+
+
