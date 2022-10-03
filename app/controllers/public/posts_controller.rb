@@ -2,10 +2,9 @@ class Public::PostsController < ApplicationController
   
   def new
     @post = Post.new
+    @post.prefecture_relations.build
     schedule = @post.schedules.build
     schedule.spots.build
-    
-    
   end
   
   def create
@@ -25,6 +24,7 @@ class Public::PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:title, :body,
+                                  prefecture_relations_attributes:[:id, :prefecture_id, :_destroy],
                                   schedules_attributes:[:id, :day, :_destroy, 
                                   spots_attributes:[:id, :name, :comment, :arriving_time, :leaving_time, :_destroy]])
   end
