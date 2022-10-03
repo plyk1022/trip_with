@@ -1,47 +1,35 @@
-<div class = 'row'>
-  <div class ="col-4">
 <%= form_with model: post do |f| %>
-
-  
-
   <div class = 'field'>
     <%= f.label :title, 'タイトル' %><br>
     <%= f.text_field :title %>
   </div>
-
+  
   <div class = 'field'>
     <%= f.label :body %><br>
     <%= f.text_area :body %>
   </div>
   
   <%= f.fields_for :prefecture_relations do |pref| %>
-    <%= f.label :name, '都道府県'%>
-    <%= render 'prefecture_relation_fields', f: pref %>
+   <%= render 'prefecture_relation_fields', f: pref %>
   <% end %>
-
+  
   <div class = 'links'>
     <%= link_to_add_association "都道府県追加", f, :prefecture_relations %>
   </div>
-
   
-  </div>
-  
-  <div class = 'col-8'>
   <div class = 'schedules'>
     <%= f.fields_for :schedules do |schedule| %>
       <%= render 'schedule_fields', f: schedule %>
     <% end %>
-
+  
     <div class = 'links'>
       <%= link_to_add_association "日程追加", f, :schedules %>
     </div>
   </div>
-
+  
   <div class = 'submit-button'>
     <%= f.submit '投稿' %>
   </div>
 
 <% end %>
-</div>
 
-</div>

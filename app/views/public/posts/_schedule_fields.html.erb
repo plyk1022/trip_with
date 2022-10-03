@@ -7,10 +7,10 @@
   <%= f.fields_for :spots do |spot| %>
     <%= render 'spot_fields', f: spot %>
   <% end %>
-  
+
 
   <div class = 'links'>
     <%= link_to_add_association "スポット追加", f, :spots %>
   </div>
-  
+
 </div>
