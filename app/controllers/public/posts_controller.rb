@@ -4,7 +4,8 @@ class Public::PostsController < ApplicationController
     @post = Post.new
     @post.prefecture_relations.build
     schedule = @post.schedules.build
-    schedule.spots.build
+    3.times{
+      schedule.spots.build }
   end
   
   def create
@@ -20,6 +21,17 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+  end
+  
+  def edit
+    @post = Post.find(params[:id])
+    
+  end
+  
+  def update
+    @post = Post.find(params[:id])
+    @post.update(post_params)
+    redirect_to post_path(@post.id)
   end
   
   
