@@ -1,5 +1,5 @@
 <div class = 'nested-fields'>
-  
+
   <%= f.select :prefecture_id, options_from_collection_for_select(Prefecture.all, :id, :name) %>
 
   <%= link_to_remove_association "都道府県削除", f %>
