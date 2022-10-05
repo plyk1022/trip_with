@@ -9,28 +9,48 @@
 
 
 
-<div class = 'card'>
-  
-    <% @post.schedules.each do |schedule| %>
-    <div class = 'card-header'>
-  <%=schedule.date %>
-    
-  </div>
-  
-  
+<div>
+  <% @post.schedules.each do |schedule| %>
+    <h2>
+      <%=schedule.date.strftime('%Y年 %m月 %d日') %>
+    </h2>
 
 
-
-
+  <div class = 'schedule-block'>
     <% schedule.spots.each do |spot| %>
-      <%= spot.name %>
-      <%= spot.comment %>
+  <div class = 'time mb-5 border-left border-5'>
+    <%= spot.arriving_time.strftime('%H:%M') %>
+    <div class = 'row spot'>
+      <div class = 'col-4 ml-3 spot-image'>
+    <%= image_tag spot.get_spot_image(300,150) %> </div>
+    
+    <div class = 'col-4 spot-info'><h3><%= spot.name %></h3>
+    <p><%= spot.comment %></p></div>
+    
+    </div>
+    <%= spot.leaving_time.strftime('%H:%M') %>
+  </div>
 
-    <% end %>
+  <% end %>
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
 
 <% end %>
-  
-  
-</div>
+
+
+
 
 
