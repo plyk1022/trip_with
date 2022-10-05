@@ -8,6 +8,10 @@ class Public::PostsController < ApplicationController
 
   def form
     @post = Post.new(post_params)
+    
+    
+      
+  
 
     @trip_days = (@post.end_date - @post.start_date).to_i + 1
 
@@ -28,7 +32,7 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     @post.save
-    redirect_to new_post_path
+    redirect_to post_path(@post)
   end
 
   def index
@@ -53,8 +57,7 @@ class Public::PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :body, :start_date, :end_date,
-                                  prefecture_relations_attributes:[:id, :prefecture_id, :_destroy],
+    params.require(:post).permit(:title, :body, :start_date, :end_date, prefecture_ids: [],
                                   schedules_attributes:[:id, :date, :_destroy,
                                   spots_attributes:[:id, :name, :comment, :arriving_time, :leaving_time, :spot_image, :_destroy]])
   end

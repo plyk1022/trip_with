@@ -1,27 +1,30 @@
 <div class = 'nested-fields'>
-  <div class = 'fields'>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class = 'fields'>
-    <%= f.label :comment %><br>
-    <%= f.text_area :comment %>
+  <div class = 'row'>
+    <div class = 'col-9'>
+      <%= f.label :name, 'スポット', class: 'form-label' %>
+      <%= f.text_field :name, class: 'form-control' %>
 
-  </div>
-  <div class = 'fields'>
-    <%= f.label :arriving_time %><br>
-    <%= f.time_field :arriving_time %>
+      <%= f.label :comment, 'コメント', class: 'form-label' %>
+      <%= f.text_area :comment, class: 'form-control' %>
 
-  </div>
-  <div class = 'fields'>
-    <%= f.label :leaving_time %><br>
-    <%= f.time_field :leaving_time %>
-  </div>
+      <div class = 'row'>
+        <div class = 'col-6'>
+           <%= f.label :arriving_time, '到着時間', class: 'form-label' %>
+        <%= f.time_field :arriving_time, class: 'form-control' %>
+        </div>
+  
+        <div class = 'col-6'>
+           <%= f.label :leaving_time, '出発時間', class: 'form-label' %>
+        <%= f.time_field :leaving_time, class: 'form-control' %>
+        </div>
+      </div>
 
-  <div class = 'fields'>
-    <%= f.label :spot_image %><br>
-    <%= f.file_field :spot_image, accept: "image/*" %>
+      <%= f.label :spot_image, '画像選択', class: 'form-label' %>
+      <%= f.file_field :spot_image, accept: "image/*", class: 'form-control' %>
+    </div>
+    
+    <div class = 'col-3' style = 'margin-top: 200px;'>
+      <%= link_to_remove_association '×スポット', f %>
+    </div>
   </div>
-
-    <%= link_to_remove_association "スポット削除", f %>
 </div>
