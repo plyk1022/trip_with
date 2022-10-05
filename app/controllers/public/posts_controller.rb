@@ -15,8 +15,7 @@ class Public::PostsController < ApplicationController
 
     @trip_days.times do
       schedule = @post.schedules.build
-      3.times{ schedule.spots.build }
-
+      schedule.spots.build
 
       schedule.date = date
       date = date + 1

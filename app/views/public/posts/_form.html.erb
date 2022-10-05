@@ -5,38 +5,37 @@
         <%= f.label :title, 'タイトル' %><br>
         <%= f.text_field :title %>
       </div>
-      
+
       <div class = 'field'>
-        <%= f.label :body %><br>
+        <%= f.label :body, 'コメント' %><br>
         <%= f.text_area :body %>
       </div>
-      
-      
+
+
      <div class = 'field'>
         <%= f.date_field :start_date %>
         <%= f.date_field :end_date %>
       </div>
+
+      <%= f.collection_check_boxes(:prefecture_ids, Prefecture.all, :id, :name) do |pref| %>
       
-      <%= f.fields_for :prefecture_relations do |pref| %>
-        <%= render 'prefecture_relation_fields', f: pref %>
+        <%= pref.check_box %>
+        <%= pref.text %>
       <% end %>
 
-      <div class = 'links'>
-      <%= link_to_add_association "都道府県追加", f, :prefecture_relations %>
-      </div>
+
+     
     </div>
-    
+
     <div class = col-8>
       <div class = 'schedules'>
         <%= f.fields_for :schedules do |schedule| %>
           <%= render 'schedule_fields', f: schedule %>
         <% end %>
+
         
-        <div class = 'links'>
-          <%= link_to_add_association "日程追加", f, :schedules %>
-        </div>
       </div>
-      
+
       <div class = 'submit-button'>
         <%= f.submit '投稿' %>
       </div>

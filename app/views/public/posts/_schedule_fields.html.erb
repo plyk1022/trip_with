@@ -1,7 +1,7 @@
 <div class = 'nested-fields border'>
   <%= f.date_field :date %>
   
-  <%= link_to_remove_association "日程削除", f %>
+  
   
   <%= f.fields_for :spots do |spot| %>
     <%= render 'spot_fields', f: spot %>
