@@ -23,10 +23,10 @@
     <div class = 'row spot'>
       <div class = 'col-4 ml-3 spot-image'>
     <%= image_tag spot.get_spot_image(300,150) %> </div>
-    
+
     <div class = 'col-4 spot-info'><h3><%= spot.name %></h3>
     <p><%= spot.comment %></p></div>
-    
+
     </div>
     <%= spot.leaving_time.strftime('%H:%M') %>
   </div>
@@ -39,14 +39,23 @@
 
 
 
+<% end %>
 
+<p>コメント件数：<%= @post.comments.count %></p>
+  <% @post.comments.each do |comment| %>
+    <p><%= image_tag comment.user.get_profile_image(100,100) %></p>
+    <%= comment.user.name %>
+    <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+    <% if comment.user == current_user %>
+      <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete %>
+    <% end %>
+  <% end %>
+</div>
+<div>
 
-
-
-
-
-
-
+<%= form_with model: [@post, @post_comment] do |f| %>
+  <%= f.text_area :comment, row: '5' %>
+  <%= f.submit '投稿する' %>
 
 <% end %>
 
