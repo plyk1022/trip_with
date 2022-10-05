@@ -8,10 +8,6 @@ class Public::PostsController < ApplicationController
 
   def form
     @post = Post.new(post_params)
-    
-    
-      
-  
 
     @trip_days = (@post.end_date - @post.start_date).to_i + 1
 
@@ -41,6 +37,7 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @post_comment = Comment.new
   end
 
   def edit
