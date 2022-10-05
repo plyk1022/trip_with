@@ -1,0 +1,9 @@
+<% posts.each do |post| %>
+  <div class = 'card'>
+    <%= post.user.name %>
+    <div class = 'card-title'><%= post.title %></div>
+    <div class = 'card-body'><%= post.body %></div>
+    <%= link_to '詳細', post_path(post.id) %>
+    <%= render 'public/favorites/btn', post: post %>
+  </div>
+<% end %>
