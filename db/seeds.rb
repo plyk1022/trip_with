@@ -1,3 +1,8 @@
+Admin.create(
+  email: 'admin@trip-with.com', 
+  password: 'admin-trip-with'
+  )
+
 Prefecture.create(name: '北海道')
 Prefecture.create(name: '青森県')
 Prefecture.create(name: '岩手県')
