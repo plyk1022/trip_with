@@ -1,6 +1,6 @@
 <div class = 'nested-fields'>
   <div class = 'row'>
-    <div class = 'col-9'>
+    <div class = 'col-9 border-left mb-5'>
       <%= f.label :name, 'スポット', class: 'form-label' %>
       <%= f.text_field :name, class: 'form-control' %>
 
@@ -12,7 +12,7 @@
            <%= f.label :arriving_time, '到着時間', class: 'form-label' %>
         <%= f.time_field :arriving_time, class: 'form-control' %>
         </div>
-  
+
         <div class = 'col-6'>
            <%= f.label :leaving_time, '出発時間', class: 'form-label' %>
         <%= f.time_field :leaving_time, class: 'form-control' %>
@@ -22,9 +22,9 @@
       <%= f.label :spot_image, '画像選択', class: 'form-label' %>
       <%= f.file_field :spot_image, accept: "image/*", class: 'form-control' %>
     </div>
-    
-    <div class = 'col-3' style = 'margin-top: 200px;'>
-      <%= link_to_remove_association '×スポット', f %>
+
+    <div class = 'col-3' style = 'margin-top: 165px;'>
+      <%= link_to_remove_association '×', f, class: 'btn btn-danger rounded-circle' %>
     </div>
   </div>
 </div>

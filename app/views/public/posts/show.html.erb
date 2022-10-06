@@ -1,63 +1,114 @@
+<div class = 'col-10 mx-auto'>
 
-<h1><%= @post.title %></h1>
+  <div class = 'row'>
+    <h1><%= @post.title %></h1>
+    <p><%= @post.body %></p>
+  </div>
 
-<p><%= @post.body %></p>
-
-<% @post.prefecture_relations.each do |pref| %>
-  <span><%= pref.prefecture.name %></span>
-<% end %>
-
-
-
-<div>
-  <% @post.schedules.each do |schedule| %>
-    <h2>
-      <%=schedule.date.strftime('%Y年 %m月 %d日') %>
-    </h2>
-
-
-  <div class = 'schedule-block'>
-    <% schedule.spots.each do |spot| %>
-  <div class = 'time mb-5 border-left border-5'>
-    <%= spot.arriving_time.strftime('%H:%M') %>
-    <div class = 'row spot'>
-      <div class = 'col-4 ml-3 spot-image'>
-    <%= image_tag spot.get_spot_image(300,150) %> </div>
-
-    <div class = 'col-4 spot-info'><h3><%= spot.name %></h3>
-    <p><%= spot.comment %></p></div>
-
+  <div class = 'row mb-4'>
+    <div class = 'col-1'>
+      <%= image_tag @post.user.get_profile_image(30, 30), class: 'rounded-circle border' %>
     </div>
-    <%= spot.leaving_time.strftime('%H:%M') %>
+    <div class = 'col-1'>
+      <%= @post.user.name %>
+    </div>
+    <div class = 'col-7'>
+      <% @post.prefecture_relations.each do |pref| %>
+        <span><%= pref.prefecture.name %></span>
+      <% end %>
+    </div>
   </div>
 
+
+
+  <% @post.schedules.each do |schedule| %>
+    <div class = 'row' >
+      <h2><%=schedule.date.strftime('%Y年 %m月 %d日') %></h2>
+    </div>
+
+
+
+  <% schedule.spots.each do |spot| %>
+      <div class = 'time border-left mb-5 pl-3 border-5'>
+        <%= spot.arriving_time.strftime('%H:%M') %>
+        <div class = 'row'>
+          <div class = 'col-4 ml-3 spot-image'>
+            <%= image_tag spot.get_spot_image(300,200) %>
+          </div>
+          <div class = 'col-7 spot-info'>
+            <h3><%= spot.name %></h3>
+            <p><%= spot.comment %></p>
+          </div>
+
+
+        </div>
+        <%= spot.leaving_time.strftime('%H:%M') %>
+      </div>
   <% end %>
 
 
-  </div>
-</div>
 
 
 
-<% end %>
 
-<p>コメント件数：<%= @post.comments.count %></p>
+
+
+
+
+
+
+
+  <% end %>
+  <i class="fa-regular fa-comment"></i>
+
+  <%= @post.comments.count %>
   <% @post.comments.each do |comment| %>
-    <p><%= image_tag comment.user.get_profile_image(100,100) %></p>
-    <%= comment.user.name %>
-    <%= comment.created_at.strftime('%Y年%m月%d日') %><%= comment.comment %>
-    <% if comment.user == current_user %>
-      <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete %>
-    <% end %>
-  <% end %>
-</div>
-<div>
 
-<%= form_with model: [@post, @post_comment] do |f| %>
+
+  <div class = 'row'>
+  <div class = 'col-1'>
+  <%= image_tag comment.user.get_profile_image(30,30), class: 'rounded-circle border' %>
+  </div>
+  <div class = 'col'>
+  <div class = 'row'>
+  <div class = 'col-'>
+
+  <%= comment.user.name %>
+  </div>
+
+  <div class = 'col'>
+  <%= comment.created_at.strftime('%Y年%m月%d日 %H:%M') %>
+
+  </div>
+  </div>
+  <div class = 'row'>
+  <%= comment.comment %>
+  <% if comment.user == current_user %>
+  <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete %>
+  <% end %>
+  </div>
+
+  </div>
+
+
+
+  </div>
+
+
+
+  <% end %>
+
+
+
+  <%= form_with model: [@post, @post_comment] do |f| %>
   <%= f.text_area :comment, rows: '3' %>
   <%= f.submit '投稿する' %>
 
-<% end %>
+  <% end %>
+
+
+
+</div>
 
 
 
