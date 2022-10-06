@@ -15,7 +15,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'homes#top'
+    resources :posts, only:[:show, :edit]
     resources :users, only:[:index,:show,:edit,:update]
+    resources :comments, only:[:index, :destroy]
   end
 
   scope module: :public do
