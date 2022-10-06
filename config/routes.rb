@@ -1,26 +1,30 @@
 Rails.application.routes.draw do
-  
+
   devise_for :users, controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
   }
-  
+
   devise_for :admin, controllers: {
   sessions: "admin/sessions"
   }
-  
+
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'public/sessions#guest_sign_in'
+  end
+
   namespace :admin do
     get 'homes/top'
     resources :users, only:[:index,:show,:edit,:update]
   end
- 
+
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about', as: 'about'
     get 'users/unsubscribe', as: 'unsubscribe'
     patch 'users/withdraw', as: 'withdraw'
     resources :users, only:[:show,:edit,:update]
-    
+
     post 'posts/form' => 'posts#form', as: 'form'
     resources :posts do
       resource :favorites, only: [:create, :destroy]
