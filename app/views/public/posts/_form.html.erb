@@ -4,12 +4,12 @@
       <h4><%= f.label :title, 'タイトル', class: 'form-label' %></h4>
       <%= f.text_field :title, class: 'form-control' %>
     </div>
-    
+
     <div class = 'col-10 mx-auto mt-3'>
       <h4><%= f.label :body, '概要', class: 'form-label' %></h4>
       <%= f.text_area :body, rows: '3', class: 'form-control' %>
     </div>
-    
+
     <div class = 'row mt-5'>
       <div class = 'col-4' style = 'margin-left: 125px;'>
         <h4><%= f.label :prefecture, '都道府県(複数選択可)', class: 'form-label' %></h4>
@@ -22,23 +22,23 @@
           <% end %>
         </div>
       </div>
-      
+
       <div class = 'col-6'>
         <h4>スケジュール</h4>
         <%= f.fields_for :schedules do |schedule| %>
-          <%= render 'schedule', f: schedule %>
+          <%= render 'public/posts/schedule', f: schedule %>
         <% end %>
       </div>
     </div>
-    
+
     <div class = 'col-3 mx-auto'>
       <%= f.submit '投稿' %>
     </div>
   </div>
-  
+
   <%= f.date_field :start_date %>
   <%= f.date_field :end_date %>
-  
-  
+
+
 <% end %>
 
