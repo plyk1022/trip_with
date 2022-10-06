@@ -7,7 +7,7 @@
         <th>自己紹介</th>
         <th>投稿数</th>
         <th>コメント投稿数</th>
-        
+
         <th>ステータス</th>
         <th></th>
         <th></th>
@@ -20,12 +20,12 @@
     <tbody>
       <% @users.each do |user| %>
       <tr>
-        
+
         <td><%= image_tag user.get_profile_image(50, 50) %><%= user.name %></td>
         <td><%= user.introduction %></td>
         <td><%= link_to user.posts.count, admin_user_path(user) %></td>
         <td><%= user.comments.count %></td>
-        
+
         <td>
           <% if user.is_deleted == false %>
             <p>有効</p>
@@ -33,22 +33,22 @@
             <p>退会</p>
           <% end %>
         </td>
-          
+
         <td></td>
         <td></td>
         <td></td>
         <td></td>
         <td></td>
         <td></td>
-        
+
       </tr>
       <% end %>
     </tbody>
-    
-    
-    
+
+
+
   </table>
-  
+
 
 
 
