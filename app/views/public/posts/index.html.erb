@@ -1,1 +1,50 @@
-<%= render 'index', posts: @posts %>
+<% @posts.each do |post| %>
+<div class = 'row'>
+  <div class = 'col-12 border mb-4'>
+
+    <div class = 'row'>
+      <div class = 'col-1'>
+        <%= image_tag post.user.get_profile_image(50, 50), class: 'rounded-circle border' %>
+      </div>
+      <div class = 'col-4'>
+        <%= post.user.name %><br>
+        <%= post.created_at.strftime('%Y月%m日%d日') %>
+      </div>
+
+      <div class = 'col-7'>
+        <% post.prefecture_relations.each do |pref| %>
+          <span><%= pref.prefecture.name %></span>
+        <% end %>
+      </div>
+    </div>
+
+    <div class = 'row'>
+      <div class = 'col-12'>
+        <h4><%= post.title %></h4>
+      </div>
+    </div>
+    <div class = 'row'>
+      <div class = 'col-12'>
+        <p><%= post.body %></p>
+      </div>
+    </div>
+
+    <div class = 'row'>
+      <div class = 'col-1'>
+        <%= render 'public/favorites/btn', post: post %>
+      </div>
+
+      <div class = 'col-2'>
+        <%= link_to '詳細', post_path(post.id) %>
+      </div>
+      <div class = 'col-2'>
+        <%= link_to '編集', edit_post_path(post.id) %>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<% end %>
+
