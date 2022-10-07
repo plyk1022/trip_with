@@ -27,13 +27,15 @@ Rails.application.routes.draw do
     patch 'users/withdraw', as: 'withdraw'
     get 'search' => 'searches#search'
     resources :users, only:[:show,:edit,:update]
-    
 
     post 'posts/form' => 'posts#form', as: 'form'
+    get 'favorites/index', as: 'favorites'
+    
     resources :posts do
       resource :favorites, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
+
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
