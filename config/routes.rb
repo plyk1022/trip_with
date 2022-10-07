@@ -25,7 +25,9 @@ Rails.application.routes.draw do
     get 'about' => 'homes#about', as: 'about'
     get 'users/unsubscribe', as: 'unsubscribe'
     patch 'users/withdraw', as: 'withdraw'
+    get 'search' => 'searches#search'
     resources :users, only:[:show,:edit,:update]
+    
 
     post 'posts/form' => 'posts#form', as: 'form'
     resources :posts do

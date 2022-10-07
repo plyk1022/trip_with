@@ -1,7 +1,15 @@
 <div class = 'row'>
   <div class = 'col-11 mx-auto'>
     <div class = 'row'>
+      <div class = 'col-9 offset-3'>
+        <h4>検索結果: <%= @word %></h4>
+      </div>
+      
+    </div>
+    <div class = 'row'>
+        
       <div class = 'col-3'>
+          
         <%= render 'public/searches/search_form', post: @post %>
       </div>
       <div class = 'col-9'>
@@ -10,6 +18,3 @@
     </div>
   </div>
 </div>
-
-
-
