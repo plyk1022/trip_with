@@ -1,6 +1,6 @@
 <% posts.each do |post| %>
 <div class = 'row'>
-  <div class = 'col-12 border mb-4'>
+  <div class = 'col-12 border p-2 mb-4'>
 
     <div class = 'row'>
       <div class = 'col-1'>
@@ -13,9 +13,9 @@
         <%= post.created_at.strftime('%Y月%m日%d日') %>
       </div>
 
-      <div class = 'col-7'>
+      <div class = 'col-7 mt-2 text-right'>
         <% post.prefecture_relations.each do |pref| %>
-          <span><%= pref.prefecture.name %></span>
+          <span class = 'border p-1 mx-1'><%= pref.prefecture.name %></span>
         <% end %>
       </div>
     </div>
@@ -34,6 +34,9 @@
     <div class = 'row'>
       <div class = 'col-1'>
         <%= render 'public/favorites/btn', post: post %>
+      </div>
+      <div class = 'col-1'>
+        <i class="fa-regular fa-comment"> </i><%= post.comments.count %>
       </div>
 
       <div class = 'col-2'>
