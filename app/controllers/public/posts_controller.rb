@@ -1,5 +1,6 @@
 class Public::PostsController < ApplicationController
-
+  before_action :correct_user, only: [:edit]
+  
   def new
     @post = Post.new
     @post.prefecture_relations.build
@@ -53,9 +54,17 @@ class Public::PostsController < ApplicationController
 
 
   private
+  
   def post_params
     params.require(:post).permit(:title, :body, :start_date, :end_date, prefecture_ids: [],
                                   schedules_attributes:[:id, :date, :_destroy,
                                   spots_attributes:[:id, :name, :comment, :arriving_time, :leaving_time, :spot_image, :_destroy]])
   end
+  
+  def correct_user
+    @post = Post.find(params[:id])
+    @user = @post.user
+    redirect_to(posts_path) unless @user == current_user
+  end
+  
 end
