@@ -2,7 +2,7 @@
 
   <div class = 'row'>
     <h1><%= @post.title %></h1>
-  </div>  
+  </div>
   <div class = 'row'>
     <p><%= @post.body %></p>
   </div>
@@ -12,17 +12,19 @@
       <%= image_tag @post.user.get_profile_image(30, 30), class: 'rounded-circle border' %>
       <%= @post.user.name %>
     </div>
-    
+
     <div class = 'col-7'>
       <% @post.prefecture_relations.each do |pref| %>
         <span><%= pref.prefecture.name %></span>
       <% end %>
     </div>
   </div>
-  
+
   <div class = 'row'>
-    <div class = 'col-2'>
+    <div class = 'col-1'>
       <%= render 'public/favorites/btn', post: @post %>
+    </div>
+    <div class = 'col-1' style = 'cursor: pointer', onclick = 'comment()' >
       <i class="fa-regular fa-comment"> </i><%= @post.comments.count %>
     </div>
   </div>
@@ -67,9 +69,7 @@
 
 
   <% end %>
-  <i class="fa-regular fa-comment"></i>
 
-  <%= @post.comments.count %>
   <% @post.comments.each do |comment| %>
 
 
@@ -122,3 +122,18 @@
 
 
 
+<script>
+
+function comment(){
+
+  let elm = document.documentElement;
+
+  // scrollHeight ページの高さ clientHeight ブラウザの高さ
+  let bottom = elm.scrollHeight - elm.clientHeight;
+
+  // 垂直方向へ移動
+  window.scroll(0, bottom);
+
+}
+
+</script>
