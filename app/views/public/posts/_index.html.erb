@@ -32,24 +32,25 @@
     </div>
 
     <div class = 'row'>
-      <div class = 'col-1'>
+      <div class = 'col-2'>
         <%= render 'public/favorites/btn', post: post %>
-      </div>
-      <div class = 'col-1'>
+      
 
-        <%= link_to post_path(post) do %>
+        
           <i class="fa-regular fa-comment"> </i><%= post.comments.count %>
-        <% end %>
+        
       </div>
 
-      <div class = 'col-2'>
-        <%= link_to '詳細', post_path(post.id) %>
-      </div>
+      <div class = 'col-4 offset-6 text-right'>
+        
+      
 
-      <div class = 'col-2'>
+      
         <% if post.user == current_user %>
-          <%= link_to '編集', edit_post_path(post.id) %>
+          <%= link_to '編集', edit_post_path(post.id), class: 'btn btn-success' %>
         <% end %>
+        
+        <%= link_to '詳細', post_path(post.id), class: 'btn btn-primary' %>
       </div>
 
     </div>

@@ -20,7 +20,7 @@ class Post < ApplicationRecord
   end
 
   def self.looks(word)
-    where(["title like? OR body like?", "%#{word}%", "%#{word}%"])
+    where(["title like?", "%#{word}%"])
   end
 
 end
