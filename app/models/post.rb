@@ -12,12 +12,15 @@ class Post < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  has_many :post_tag, dependent: :destroy
+  has_many :tag, through: :post_tag
+
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
-  
+
   def self.looks(word)
-    where(["title like? OR body like?", "%#{word}%", "%#{word}%"])
+    where(["title like?", "%#{word}%"])
   end
-  
+
 end
