@@ -1,0 +1,19 @@
+<% post.comments.each do |comment| %>
+  <div class = 'row border-top pt-2 mb-3'>
+  <div class = 'col-1'>
+    <%= image_tag comment.user.get_profile_image(35,35), class: 'rounded-circle border' %>
+  </div>
+  <div id = 'post-<%= post.id %>' class = 'col-11'>
+    <div class = 'row'>
+      <%= comment.user.name %>
+      <%= comment.created_at.strftime('%Y-%m-%d %H:%M') %>
+    </div>
+    <div class = 'row'>
+      <%= safe_join(comment.comment.split("\n"),tag(:br)) %>
+      <% if comment.user == current_user %>
+        <%= link_to "削除", post_comment_path(comment.post, comment), remote: true, method: :delete %>
+      <% end %>
+    </div>
+  </div>
+  </div>
+<% end %>

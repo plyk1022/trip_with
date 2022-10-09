@@ -32,13 +32,13 @@
     </div>
 
     <div class = 'row'>
-      <div class = 'col-2'>
-        <%= render 'public/favorites/btn', post: post %>
-      
-
-        
+      <div class = 'col-2' id = 'post-<%= post.id %>'>
+        <span class = 'favorite-btn'>
+          <%= render 'public/favorites/btn', post: post %>
+        </span>
+        <span class = 'comments-count'>
           <i class="fa-regular fa-comment"> </i><%= post.comments.count %>
-        
+        </span>
       </div>
 
       <div class = 'col-4 offset-6 text-right'>
