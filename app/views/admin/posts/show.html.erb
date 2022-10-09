@@ -1,2 +1,78 @@
-<h1>Admin::Posts#show</h1>
-<p>Find me in app/views/admin/posts/show.html.erb</p>
+<div class = 'col-10 mx-auto'>
+
+  <div class = 'row'>
+    <h1><%= @post.title %></h1>
+  </div>
+  <div class = 'row'>
+    <p><%= @post.body %></p>
+  </div>
+
+  <div class = 'row'>
+    <div class = 'col-3'>
+      <%= image_tag @post.user.get_profile_image(30, 30), class: 'rounded-circle border' %>
+      <%= @post.user.name %>
+    </div>
+
+    <div class = 'col-8 text-right'>
+      <% @post.prefecture_relations.each do |pref| %>
+        <span class = 'border p-1 mx-1'><%= pref.prefecture.name %></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class = 'row'>
+    <div class = 'col-2' style = 'margin-left: 40px;' id = 'post-<%= @post.id %>'>
+      
+
+      <span class = 'comments-count', style = 'cursor: pointer', onclick = 'comment()' >
+        <%= render 'public/comments/counter', post: @post %>
+      </span>
+    </div>
+  </div>
+
+  <% @post.schedules.each do |schedule| %>
+    <div class = 'row mt-2' >
+      <h2><%=schedule.date.strftime('%Y年 %m月 %d日') %></h2>
+    </div>
+
+    <% schedule.spots.each do |spot| %>
+      <div class = 'time border-left mb-5 pl-3 border-5'>
+        <%= spot.arriving_time.strftime('%H:%M') %>
+        <div class = 'row'>
+          <div class = 'col-4 ml-3 spot-image'>
+            <%= image_tag spot.get_spot_image(300,200) %>
+          </div>
+          <div class = 'col-7 spot-info'>
+            <h3><%= spot.name %></h3>
+            <p><%= spot.comment %></p>
+          </div>
+        </div>
+        <%= spot.leaving_time.strftime('%H:%M') %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class = 'row'>
+    <h2>コメント</h2>
+  </div>
+
+  <div class = 'row'>
+    <div class = 'col-12 post-comments'>
+      <%= render 'public/comments/index', post: @post %>
+    </div>
+    
+    
+    
+    
+    
+  </div>
+</div>
+
+
+<script>
+  function comment(){
+    let elment = document.documentElement;
+    let bottom = elment.scrollHeight - elment.clientHeight;
+    window.scroll(0, bottom);
+  }
+</script>
