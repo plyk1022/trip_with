@@ -21,8 +21,11 @@
   </div>
   
   <div class = 'row'>
-    <div class = 'col-2' style = 'margin-left: 40px;'>
-      <%= render 'public/favorites/btn', post: @post %>
+    <div class = 'col-2' style = 'margin-left: 40px;' id = 'post-<%= @post.id %>'>
+      <span class = 'favorite-btn'>
+        <%= render 'public/favorites/btn', post: @post %>
+      </span>
+      
       <span style = 'cursor: pointer', onclick = 'comment()' >
         <i class="fa-regular fa-comment"> </i><%= @post.comments.count %>
       </span>
