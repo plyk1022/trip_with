@@ -36,8 +36,9 @@
         <span class = 'favorite-btn'>
           <%= render 'public/favorites/btn', post: post %>
         </span>
-        
-        <i class="fa-regular fa-comment"> </i><%= post.comments.count %>
+        <span class = 'comments-count'>
+          <i class="fa-regular fa-comment"> </i><%= post.comments.count %>
+        </span>
       </div>
 
       <div class = 'col-4 offset-6 text-right'>
