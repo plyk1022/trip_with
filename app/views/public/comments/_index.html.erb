@@ -10,7 +10,7 @@
     </div>
     <div class = 'row'>
       <%= safe_join(comment.comment.split("\n"),tag(:br)) %>
-      <% if comment.user == current_user %>
+      <% if comment.user == current_user || admin_signed_in? %>
         <%= link_to "削除", post_comment_path(comment.post, comment), remote: true, method: :delete %>
       <% end %>
     </div>

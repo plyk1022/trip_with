@@ -1,18 +1,18 @@
 <div class = 'row'>
-  <div class = 'col-11 mx-auto'>
-
-  <table class = 'table'>
+  <div class = 'col-10 mx-auto'>
+  <h2>ユーザー一覧</h2>
+  <table class = 'table table-bordered'>
     <thead>
       <tr class = 'text-center'>
-        <th>ID</th>
-        <th>ユーザー</th>
-        <th>自己紹介</th>
-        <th>投稿</th>
-        <th>コメント</th>
-        <th>ステータス</th>
-        
-        <th></th>
-      
+        <th class = 'col-1'>ID</th>
+        <th class = 'col-2'>ユーザー</th>
+        <th class = 'col-4'>自己紹介</th>
+        <th class = 'col-1'>投稿</th>
+        <th class = 'col-1'>コメント</th>
+        <th class = 'col-2'>ステータス</th>
+
+        <th class = 'col-1'></th>
+
       </tr>
     </thead>
     <tbody>
@@ -20,21 +20,15 @@
       <tr>
         <td class = 'text-center'><%= user.id %></td>
 
-        <td><%= user.name %></td>
+        <td class = 'text-center'><%= user.name %></td>
         <td><%= user.introduction %></td>
         <td class = 'text-center'><%= link_to user.posts.count, admin_user_path(user) %></td>
         <td class = 'text-center'><%= user.comments.count %></td>
 
-        <td class = 'text-center'>
-          <% if user.is_deleted == false %>
-            <p>有効</p>
-          <% else %>
-            <p>退会</p>
-          <% end %>
-        </td>
+        <td class = 'text-center'><%= user.is_deleted ? '退会':'有効' %></td>
 
         <td><%= link_to '詳細', admin_user_path(user) %></td>
-        
+
 
       </tr>
       <% end %>

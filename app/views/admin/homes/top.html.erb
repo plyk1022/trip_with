@@ -1,1 +1,30 @@
-<%= render 'index', posts: @post %>
+<div class = 'row'>
+
+  <div class = 'col-10 mx-auto'>
+    <h2>投稿一覧</h2>
+    <table class = 'table table-bordered'>
+      <thead>
+        <tr class = 'text-center'>
+          <th class = 'col-1'>ID</th>
+          <th class = 'col-2'>投稿日時</th>
+          <th class = 'col-6'>タイトル</th>
+          <th class = 'col-2'>投稿ユーザー</th>
+          <th class = 'col-1'></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @posts.each do |post| %>
+          <tr>
+            <td class = 'text-center'><%= post.id %></td>
+            <td class = 'text-center'><%= post.created_at.strftime('%Y-%m-%d %H:%M') %></td>
+            <td class = 'text-center'><%= post.title %></td>
+            <td class = 'text-center'><%= post.user.name %></td>
+            <td class = 'text-center'><%= link_to '詳細', admin_post_path(post) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+
+    </table>
+
+  </div>
+</div>

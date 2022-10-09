@@ -1,37 +1,35 @@
 <div class = 'row'>
-  <div class = 'col-11 mx-auto'>
-    <table class = 'table'>
+  <div class = 'col-10 mx-auto'>
+    <h2>コメント一覧</h2>
+    <table class = 'table table-bordered'>
       <thead>
         <tr class = 'text-center'>
-          <th>ID</th>
-          <th>ユーザー</th>
+          <th class = 'col-1'>ID</th>
+          <th class = 'col-2'>投稿ユーザー</th>
           <th>コメント</th>
-          <th>投稿日時</th>
-          <th>投稿タイトル</th>
-          <th></th>
-    
-    
-          
+          <th class = 'col-2'>投稿日時</th>
+          <th class = 'col-1'></th>
+
+
+
         </tr>
       </thead>
       <tbody>
         <% @comments.each do |comment| %>
           <tr>
-            <td><%= comment.user.id %></td>
-            <td><%= comment.user.name %></td>
+            <td class = 'text-center'><%= comment.id %></td>
+            <td class = 'text-center'><%= comment.user.name %></td>
             <td><%= comment.comment %></td>
-            <td><%= comment.created_at.strftime('%Y-%m-%d %H:%M')  %></td>
-            <td><%= comment.post.title %></td>
-    
-    
-            <td><%= link_to '削除', admin_comment_path(comment, comment.post), method: :delete %></td>
-            <td></td>
+            <td class = 'text-center'><%= comment.created_at.strftime('%Y-%m-%d %H:%M')  %></td>
+
+
+            <td class = 'text-center'><%= link_to '削除', admin_comment_path(comment, comment.post), method: :delete %></td>
           </tr>
-    
+
         <% end %>
       </tbody>
     </table>
-    
+
   </div>
 </div>
 
