@@ -19,8 +19,12 @@ class Post < ApplicationRecord
     favorites.exists?(user_id: user.id)
   end
 
-  def self.looks(word)
-    where(["title like?", "%#{word}%"])
+  def self.looks(range, word)
+    if range == 'タイトル'
+      where(["title like?", "%#{word}%"])
+    else
+      where(["name like?", "%#{word}%"])
+    end
   end
 
 end
