@@ -22,7 +22,7 @@
 
         <td class = 'text-center'><%= user.name %></td>
         <td><%= user.introduction %></td>
-        <td class = 'text-center'><%= link_to user.posts.count, admin_user_path(user) %></td>
+        <td class = 'text-center'><%= user.posts.count %></td>
         <td class = 'text-center'><%= user.comments.count %></td>
 
         <td class = 'text-center'><%= user.is_deleted ? '退会':'有効' %></td>

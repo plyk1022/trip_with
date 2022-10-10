@@ -10,30 +10,67 @@
       </div>
       
       <div class = 'col-8 ml-5'>
-        <table class = 'table'>
-          <thead>
-            <tr>
-              <th class = 'col-1 text-center'>ID</th>
-              <th class = 'col-3 text-center'>投稿日時</th>
-              <th class = 'text-center'>タイトル</th>
-              <th class = 'col-1'></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @posts.each do |post| %>
-            <tr>
-              <td class = 'text-center'><%= post.id %></td>
-              
-              <td class = 'text-center'><%= post.created_at.strftime('%Y-%m-%d %H:%M') %> </td>
-              <td><%= post.title %></td>
-              <td><%= link_to '詳細', admin_post_path(post) %></td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
+        <div class='nav nav-tabs' id='tab-menus' role='tablist'>
+          <a class='nav-item nav-link active' id='tab-menu1' data-toggle='tab' href='#panel-menu01' role='tab' aria-controls='panel-menu01' aria-selcted='true'>投稿</a>
+          <a class='nav-item nav-link' id='tab-menu2' data-toggle='tab' href='#panel-menu02' role='tab' aria-controls='panel-menu02' aria-selcted='true'>コメント</a>
+        </div>
+        
+        <div class='tab-content' id='panel-menus'>
+          <div class='tab-pane fade show active border border-top-0' id='panel-menu01' role='tabpanel' aria-labellendby='tab-menu01'>
+            <div class='row'>
+              <div class='col-12'>
+                <table class = 'table'>
+                  <thead>
+                    <tr>
+                      <th class = 'col-1 text-center'>ID</th>
+                      <th class = 'col-3 text-center'>投稿日時</th>
+                      <th class = 'text-center'>タイトル</th>
+                      <th class = 'col-1'></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @posts.each do |post| %>
+                      <tr>
+                        <td class = 'text-center'><%= post.id %></td>
+                        <td class = 'text-center'><%= post.created_at.strftime('%Y-%m-%d %H:%M') %> </td>
+                        <td><%= post.title %></td>
+                        <td><%= link_to '詳細', admin_post_path(post) %></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class='tab-pane fade border border-top-0' id='panel-menu02' role='tabpanel' aria-labellendby='tab-menu02'>
+            <div class='row'>
+              <div class='col-12'>
+                <table class = 'table'>
+                  <thead>
+                    <tr>
+                      <th class = 'col-1 text-center'>ID</th>
+                      <th class = 'col-3 text-center'>投稿日時</th>
+                      <th class = 'text-center'>コメント</th>
+                      <th class = 'col-1'></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @comments.each do |comment| %>
+                      <tr>
+                        <td class = 'text-center'><%= comment.id %></td>
+                        <td class = 'text-center'><%= comment.created_at.strftime('%Y-%m-%d %H:%M') %> </td>
+                        <td><%= comment.comment %></td>
+                        <td><%= link_to '削除', admin_comment_path(comment, comment.post), method: :delete %></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  
-  
   </div>
 </div>

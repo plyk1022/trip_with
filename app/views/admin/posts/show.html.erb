@@ -22,7 +22,7 @@
 
   <div class = 'row'>
     <div class = 'col-2' style = 'margin-left: 40px;' id = 'post-<%= @post.id %>'>
-      
+
 
       <span class = 'comments-count', style = 'cursor: pointer', onclick = 'comment()' >
         <%= render 'public/comments/counter', post: @post %>
@@ -60,12 +60,14 @@
     <div class = 'col-12 post-comments'>
       <%= render 'public/comments/index', post: @post %>
     </div>
-    
-    
-    
-    
-    
   </div>
+
+  <div class = 'row'>
+    <div class = 'col-12 post-comments'>
+      <%= link_to '投稿を削除', admin_post_path(@post), method: :delete, class: 'btn btn-danger' %>
+    </div>
+  </div>
+
 </div>
 
 
