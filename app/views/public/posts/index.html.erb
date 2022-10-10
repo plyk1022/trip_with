@@ -3,11 +3,36 @@
     <div class = 'row'>
       <div class = 'col-3'>
         <%= render 'public/searches/search_form', post: @post %>
+
+        <div class = 'row'>
+          
+          <table = 'table'>
+            <% @prefectures.each do |pref| %>
+            <tr>
+              <td>
+                <%= link_to pref.name, search_prefecture_path(prefecture_id: pref.id) %>
+                <%= "(#{pref.posts.count})" %>
+              </td>
+            </tr>
+            <% end %>
+          </table>
+            
+
+          
+
+
+        </div>
       </div>
-      
+
+
+
       <div class = 'col-8 ml-5'>
         <%= render 'public/posts/index', posts: @posts %>
       </div>
+
+
+
+
     </div>
   </div>
 </div>

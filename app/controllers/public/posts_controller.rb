@@ -33,6 +33,7 @@ class Public::PostsController < ApplicationController
   end
 
   def index
+    @prefectures = Prefecture.all
     @posts = Post.all
   end
 
