@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'homes#top'
     resources :posts, only:[:show, :edit, :destroy]
-    resources :users, only:[:index,:show,:edit,:update]
+    resources :users, only:[:index, :show, :update]
     resources :comments, only:[:index, :destroy]
   end
 
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     get 'users/unsubscribe', as: 'unsubscribe'
     patch 'users/withdraw', as: 'withdraw'
     get 'search' => 'searches#search'
-    resources :users, only:[:show,:edit,:update]
+    resources :users, only:[:show, :edit, :update]
 
     post 'posts/form' => 'posts#form', as: 'form'
     get 'favorites/index', as: 'favorites'
