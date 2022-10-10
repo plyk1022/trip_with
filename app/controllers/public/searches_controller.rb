@@ -10,5 +10,10 @@ class Public::SearchesController < ApplicationController
       @posts = Post.joins(schedules: :spots).looks(@range, @word).distinct
     end
   end
+  
+  def search_prefecture
+      @prefecture = Prefecture.find(params[:prefecture_id])
+      @posts = @prefecture.posts
+  end
 
 end

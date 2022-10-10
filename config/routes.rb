@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     get 'users/unsubscribe', as: 'unsubscribe'
     patch 'users/withdraw', as: 'withdraw'
     get 'search' => 'searches#search'
+    get 'search_prefecture' => 'searches#search_prefecture'
     resources :users, only:[:show, :edit, :update]
 
     post 'posts/form' => 'posts#form', as: 'form'

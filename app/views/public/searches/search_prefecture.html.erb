@@ -2,7 +2,7 @@
   <div class = 'col-11 mx-auto'>
     <div class = 'row'>
       <div class = 'col-9 offset-3'>
-        <h4 style= 'margin-left: 35px;'>【検索結果】<%= @range %>:　<%= @word %></h4>
+        <h4 style= 'margin-left: 35px;'>【検索結果】都道府県:　<%= @prefecture.name %></h4>
       </div>
     </div>
   </div>
@@ -17,7 +17,7 @@
 
       <div class = 'col-8 ml-5'>
         <% if @posts.count == 0 %>
-          <h4 class = 'text-center'>「<%= @word %>」に一致する投稿は見つかりませんでした。</h4>
+          <h4 class = 'text-center'>「<%= @prefecture.name %>」に一致する投稿は見つかりませんでした。</h4>
         <% else %>
           <%= render 'public/posts/index', posts: @posts %>
         <% end %>
