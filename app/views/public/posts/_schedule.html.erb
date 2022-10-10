@@ -1,15 +1,21 @@
 <div class = 'row mb-5'>
   <div class = 'col-3'>
-    <%= f.date_field :date %>
-  </div>
-
-  <div class = 'col-9'>
-    <%= f.fields_for :spots do |spot| %>
-      <%= render 'public/posts/spot_fields', f: spot %>
-    <% end %>
-
-    <div class = 'links'>
-      <%= link_to_add_association '＋スポット', f, :spots, partial: 'public/posts/spot_fields', class: 'mx-auto rounded-pill btn btn-primary' %>
+    <div class = 'form-group'>
+      <%= f.date_field :date, class: 'form-control' %>
     </div>
   </div>
+
+  <div class = 'col-9 mx-auto'>
+    <div class = 'form-group'>
+      <%= f.fields_for :spots do |spot| %>
+        <%= render 'public/posts/spot_fields', f: spot %>
+      <% end %>
+      
+      <%= link_to_add_association '＋スポット', f, :spots, partial: 'public/posts/spot_fields', class: 'rounded-pill btn btn-block btn-primary' %>
+    </div>
+
+      
+  </div>
+  
+  
 </div>
