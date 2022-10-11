@@ -1,6 +1,6 @@
 <% posts.each do |post| %>
 <div class = 'row'>
-  <div class = 'col-12 border p-2 mb-4'>
+  <div class = 'col-12 border p-2 mb-4 post-block'>
 
     <div class = 'row'>
       <div class = 'col-2 col-md-1'>
@@ -41,15 +41,15 @@
         </span>
       </div>
 
-      <div class = 'col-12 col-md-4 offset-md-6 text-right'>
-        
-      
+      <div class = 'col-12 text-right'>
 
-      
+
+
+
         <% if post.user == current_user %>
           <%= link_to '編集', edit_post_path(post.id), class: 'btn btn-success' %>
         <% end %>
-        
+
         <%= link_to '詳細', post_path(post.id), class: 'btn btn-primary' %>
       </div>
 
