@@ -1,18 +1,18 @@
 <div class = 'row'>
-  <div class = 'col-7 mx-auto'>
+  <div class = 'col-12 col-md-7 mx-auto'>
     <div class = 'card'>
       <h1 class = 'card-header text-center'>旅行記録作成</h1>
       
       <%= form_with model: @post, url:form_path, method: :post do |f| %>
         <div class = 'row mt-3'>
-          <div class = 'col-4 mx-auto'>
+          <div class = ' col-8 col-md-4 mx-auto'>
             <h4><%= f.label :start_date, '開始日', class: 'form-label' %></h4>
             <%= f.date_field :start_date, class: 'form-control' %>
           </div>
         </div>
         
         <div class = 'row mt-3'>
-          <div class = 'col-4 mx-auto'>
+          <div class = 'col-8 col-md-4 mx-auto'>
             <h4><%= f.label :end_date, '終了日' %></h4>
             <%= f.date_field :end_date, class: 'form-control' %>
           </div>

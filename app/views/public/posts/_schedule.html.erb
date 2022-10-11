@@ -1,11 +1,11 @@
 <div class = 'row mb-5'>
-  <div class = 'col-3'>
+  <div class = 'col-12 col-md-3'>
     <div class = 'form-group'>
       <%= f.date_field :date, class: 'form-control' %>
     </div>
   </div>
 
-  <div class = 'col-9 mx-auto'>
+  <div class = 'col-12 col-md-9 mx-auto'>
     <div class = 'form-group'>
       <%= f.fields_for :spots do |spot| %>
         <%= render 'public/posts/spot_fields', f: spot %>

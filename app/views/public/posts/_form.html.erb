@@ -16,7 +16,7 @@
         <h4><%= f.label :prefecture, '都道府県(複数選択可)', class: 'form-label' %></h4>
           <div class = 'row mx-auto'>
             <%= f.collection_check_boxes(:prefecture_ids, Prefecture.all, :id, :name) do |pref| %>
-              <div class = 'col-2'>
+              <div class = 'col-6 col-md-2'>
                 <%= pref.check_box %>
                 <%= pref.text %>
               </div>
