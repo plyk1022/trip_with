@@ -1,2 +1,12 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+header, body {
+  background-color: #f8ffff;
+}
+
+
+.post-block, .post-show, .search-form, .search-prefecture, table {
+  background-color: #fff;
+}
+
