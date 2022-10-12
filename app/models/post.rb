@@ -1,5 +1,15 @@
 class Post < ApplicationRecord
 
+  with_options presence: true do
+    validates :title, length: { maximum: 25 }
+    validates :body, length: { maximum: 100 }
+    validates :start_date
+    validates :end_date
+    validates :prefecture_relation_ids
+  end
+  
+  
+
   belongs_to :user
 
   has_many :schedules, dependent: :destroy

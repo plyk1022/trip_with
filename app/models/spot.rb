@@ -1,5 +1,18 @@
 class Spot < ApplicationRecord
 
+  validates :name, presence: true
+  validates :comment, presence: true
+  validates :arriving_time, presence: true
+  validates :leaving_time, presence: true
+  validate :time_check
+
+
+  def time_check
+    if arriving_time.present? && leaving_time.present?
+      errors.add(:leaving_time, "は出発時間より遅い時間を入力してください") unless arriving_time < leaving_time
+    end
+  end
+
   belongs_to :schedule
   has_one_attached :spot_image
 
