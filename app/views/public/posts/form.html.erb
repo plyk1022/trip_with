@@ -1,8 +1,13 @@
 <div class = 'row'>
   <div class = ' col-12 col-md-7 mx-auto'>
-  <div class = 'card'>
-    <h1 class = 'card-header text-center'>旅行記録詳細</h1>
-    <%= render 'form', post:  @post%>
-  </div>
+    <% if @post.errors.any? %>
+      <% @post.errors.full_messages.each do |message| %>
+        <li class = 'text-danger'><%=  message %></li>
+      <% end %>
+    <% end %>
+    <div class = 'card'>
+      <h1 class = 'card-header text-center'>旅行記録詳細</h1>
+      <%= render 'form', post:  @post%>
+    </div>
   </div>
 </div>
