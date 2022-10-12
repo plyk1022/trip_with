@@ -4,8 +4,9 @@
 
     <%= form_with url: search_path, method: :get do |f| %>
     <div class = 'form-group'>
-      <%= f.text_field :word, value: @word, class: 'form-control' %>
+
       <%= f.select :range, options_for_select([['タイトル'], ['スポット']], @range), class: 'form-control' %>
+      <%= f.text_field :word, value: @word, class: 'form-control mt-3' %>
     </div>
 
       <%= f.submit "検索", class: "btn  btn-block btn-primary rounded-pill" %>
