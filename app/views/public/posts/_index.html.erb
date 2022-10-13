@@ -1,6 +1,6 @@
 <% posts.each do |post| %>
 <div class = 'row'>
-  <div class = 'col-12 border p-2 mb-4 post-block'>
+  <div class = 'col-12 border border-dark p-2 mb-4 post-block'>
 
     <div class = 'row'>
       <div class = 'col-2 col-md-1'>
@@ -15,7 +15,7 @@
 
       <div class = 'col-12 col-md-7 mt-2 text-right'>
         <% post.prefecture_relations.each do |pref| %>
-          <span class = 'border p-1 mx-1'><%= pref.prefecture.name %></span>
+          <span class = 'border border-dark p-1 mx-1'><%= pref.prefecture.name %></span>
         <% end %>
       </div>
     </div>
@@ -56,6 +56,7 @@
     </div>
 
   </div>
+
 </div>
 
 <% end %>

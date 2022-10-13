@@ -1,4 +1,4 @@
-<div class = 'col-12 col-md-9 mx-auto border post-show p-5'>
+<div class = 'col-12 col-md-9 mx-auto border border-dark post-show p-5'>
 
   <div class = 'row'>
     <div class = 'col-12'>
@@ -52,8 +52,8 @@
     </div>
 
     <% schedule.spots.each do |spot| %>
-      <div class = 'row mx-auto'>
-        <div class = 'col-12 col-lg-6 border-left'>
+      <div class = 'row mx-auto mt-5'>
+        <div class = 'col-12 col-lg-6 border-left border-dark'>
           <%= spot.arriving_time.strftime('%H:%M') %>
           <div class = 'image'>
             <%= image_tag spot.get_spot_image(400,247), class: 'img-fluid' %>
