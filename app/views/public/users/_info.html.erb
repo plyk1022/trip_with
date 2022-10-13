@@ -1,18 +1,18 @@
 <div class = 'row'>
-  <div class = 'col-12 p-2 border user-info'>
+  <div class = 'col-12 p-2 border border-dark user-info'>
     <div class = 'row'>
       <div class = 'col-12'>
         <%= image_tag user.get_profile_image(70, 70), class: 'rounded-circle border' %>
         <%= user.name %>
       </div>
     </div>
-    
+
     <div class = 'row'>
       <div class = 'col-12'>
         <%= user.introduction %>
       </div>
     </div>
-    
+
     <div class = 'row'>
       <div class = 'col-12'>
         <% if user == current_user %>
