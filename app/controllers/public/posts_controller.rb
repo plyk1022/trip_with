@@ -4,13 +4,10 @@ class Public::PostsController < ApplicationController
   def new
     @post = Post.new
     @post.prefecture_relations.build
-
   end
 
   def form
     @post = Post.new(post_params)
-
-
 
     if @post.start_date > @post.end_date
       render 'new'
@@ -27,17 +24,23 @@ class Public::PostsController < ApplicationController
       schedule.date = date
       date = date + 1
     end
-
-
   end
 
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    if @post.save
-      redirect_to post_path(@post)
+
+
+    if params[:commit] == '投稿'
+      if @post.save
+        redirect_to post_path(@post)
+      else
+        render 'form'
+      end
     else
-      render 'form'
+      @post.status = 1
+      @post.save(validate: false)
+      redirect_to posts_path
     end
   end
 

@@ -14,8 +14,8 @@ ja:
       schedules/spots:
         name: スポット名
         comment: コメント
-      　arriving_time: 到着時間
-      　leaving_time: 出発時間
+        arriving_time: 到着時間
+        leaving_time: 出発時間
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
