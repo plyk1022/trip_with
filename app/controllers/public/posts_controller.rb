@@ -1,5 +1,6 @@
 class Public::PostsController < ApplicationController
-  before_action :correct_user, only: [:edit]
+  before_action :authenticate_user!
+  before_action :ensure_current_user, only: [:edit]
 
   def new
     @post = Post.new
@@ -49,8 +50,8 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @prefectures = Prefecture.all.order(:desc)
-    @posts = Post.page(params[:page])
+    @prefectures = Prefecture.all
+    @posts = Post.order(created_at: "DESC").page(params[:page])
   end
 
   def show
@@ -78,10 +79,9 @@ class Public::PostsController < ApplicationController
                                   spots_attributes:[:id, :name, :comment, :arriving_time, :leaving_time, :spot_image, :_destroy]])
   end
 
-  def correct_user
+  def ensure_current_user
     @post = Post.find(params[:id])
-    @user = @post.user
-    redirect_to(posts_path) unless @user == current_user
+    redirect_to posts_path  unless @post.user == current_user
   end
 
 end
