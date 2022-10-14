@@ -4,18 +4,19 @@
       <%= f.date_field :date, class: 'form-control' %>
     </div>
   </div>
-
+  
   <div class = 'col-12 col-md-9 mx-auto'>
     <div class = 'form-group'>
       <%= f.fields_for :spots do |spot| %>
         <%= render 'public/posts/spot_fields', f: spot %>
       <% end %>
-
-      <%= link_to_add_association '＋スポット', f, :spots, partial: 'public/posts/spot_fields', class: 'rounded-pill btn btn-block btn-primary' %>
+    
+      <div id = 'spot-forms'></div>
+    
+      <%= link_to_add_association '＋スポット', f, :spots,
+        partial: 'public/posts/spot_fields',
+        data: { association_insertion_node: '#spot-forms' },
+        class: 'rounded-pill btn btn-block btn-primary col-4' %>
     </div>
-
-
   </div>
-
-
 </div>

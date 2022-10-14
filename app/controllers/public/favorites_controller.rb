@@ -4,6 +4,7 @@ class Public::FavoritesController < ApplicationController
     @user = current_user
     favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
     @posts = Post.find(favorites)
+    @posts = Kaminari.paginate_array(@posts).page(params[:page])
   end
 
   def create
