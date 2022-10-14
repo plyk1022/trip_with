@@ -30,16 +30,14 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
 
-    if params[:commit] == '投稿'
-      if @post.save
-        redirect_to post_path(@post)
-      else
-        render 'form'
-      end
-    else
+    if params[:commit] == '下書きに保存'
       @post.status = 1
-      @post.save(validate: false)
-      redirect_to posts_path
+    end
+
+    if @post.save
+      redirect_to post_path(@post)
+    else
+      render 'form'
     end
   end
 
@@ -66,10 +64,21 @@ class Public::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
-    redirect_to post_path(@post.id)
-  end
 
+    if params[:commit] == '投稿'
+      if @post.update(status: 0)
+        redirect_to post_path(@post)
+      else
+        render 'form'
+      end
+    else
+      if @post.update(status: 1)
+        redirect_to post_path(@post)
+      else
+        render 'form'
+      end
+    end
+  end
 
   private
 
