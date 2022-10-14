@@ -10,7 +10,13 @@
       <%= f.fields_for :spots do |spot| %>
         <%= render 'public/posts/spot_fields', f: spot %>
       <% end %>
-      <%= link_to_add_association '＋スポット', f, :spots, partial: 'public/posts/spot_fields', data: {association_insertion_method: 'after'}, class: 'rounded-pill btn btn-block btn-primary col-4' %>
+    
+      <div id = 'spot-forms'></div>
+    
+      <%= link_to_add_association '＋スポット', f, :spots,
+        partial: 'public/posts/spot_fields',
+        data: { association_insertion_node: '#spot-forms' },
+        class: 'rounded-pill btn btn-block btn-primary col-4' %>
     </div>
   </div>
 </div>

@@ -14,7 +14,6 @@ class Public::PostsController < ApplicationController
     end
 
     @trip_days = (@post.end_date - @post.start_date).to_i + 1
-
     date = @post.start_date
 
     @trip_days.times do
@@ -30,7 +29,6 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
 
-
     if params[:commit] == '投稿'
       if @post.save
         redirect_to post_path(@post)
@@ -43,7 +41,7 @@ class Public::PostsController < ApplicationController
       redirect_to posts_path
     end
   end
-  
+
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
@@ -51,7 +49,7 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @prefectures = Prefecture.all
+    @prefectures = Prefecture.all.order(:desc)
     @posts = Post.page(params[:page])
   end
 
