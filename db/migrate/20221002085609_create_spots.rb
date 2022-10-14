@@ -2,10 +2,10 @@ class CreateSpots < ActiveRecord::Migration[6.1]
   def change
     create_table :spots do |t|
       t.integer :schedule_id, null: false
-      t.string :name
-      t.text :comment
-      t.time :arriving_time
-      t.time :leaving_time
+      t.string :name, null: false
+      t.text :comment, null: false
+      t.time :arriving_time, null: false
+      t.time :leaving_time, null: false
 
       t.timestamps
     end

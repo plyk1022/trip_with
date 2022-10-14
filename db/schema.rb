@@ -67,13 +67,6 @@ ActiveRecord::Schema.define(version: 2022_10_02_111936) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "post_tags", force: :cascade do |t|
-    t.integer "post_id", null: false
-    t.integer "tag_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "posts", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "title", null: false
@@ -107,16 +100,10 @@ ActiveRecord::Schema.define(version: 2022_10_02_111936) do
 
   create_table "spots", force: :cascade do |t|
     t.integer "schedule_id", null: false
-    t.string "name"
-    t.text "comment"
-    t.time "arriving_time"
-    t.time "leaving_time"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "tags", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
+    t.text "comment", null: false
+    t.time "arriving_time", null: false
+    t.time "leaving_time", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
