@@ -52,7 +52,7 @@
 
         <%= link_to '詳細', post_path(post.id), class: 'btn btn-primary' %>
       </div>
-
+      
     </div>
 
   </div>
@@ -60,4 +60,4 @@
 </div>
 
 <% end %>
-
+<%= paginate @posts %>
