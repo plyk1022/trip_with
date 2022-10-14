@@ -1,6 +1,7 @@
 class Public::CommentsController < ApplicationController
+  before_action :authenticate_user!
   
-  def create
+  def crea
     @post = Post.find(params[:post_id])
     @comment = current_user.comments.new(comment_params)
     @comment.post_id = @post.id
