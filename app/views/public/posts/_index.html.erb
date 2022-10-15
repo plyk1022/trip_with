@@ -1,0 +1,63 @@
+<% posts.each do |post| %>
+<div class = 'row'>
+  <div class = 'col-12 border border-dark p-2 mb-4 post-block'>
+
+    <div class = 'row'>
+      <div class = 'col-2 col-md-1'>
+        <%= link_to user_path(post.user) do %>
+          <%= image_tag post.user.get_profile_image(50, 50), class: 'rounded-circle border' %>
+        <% end %>
+      </div>
+      <div class = 'col-8 col-md-4'>
+        <%= post.user.name %><br>
+        <%= post.created_at.strftime('%Y月%m日%d日') %>
+      </div>
+
+      <div class = 'col-12 col-md-7 mt-2 text-right'>
+        <% post.prefecture_relations.each do |pref| %>
+          <span class = 'border border-dark p-1 mx-1'><%= pref.prefecture.name %></span>
+        <% end %>
+      </div>
+    </div>
+
+    <div class = 'row'>
+      <div class = 'col-12'>
+        <h4><%= post.title %></h4>
+      </div>
+    </div>
+    <div class = 'row'>
+      <div class = 'col-12'>
+        <p><%= post.body %></p>
+      </div>
+    </div>
+
+    <div class = 'row'>
+      <div class = 'col-4 col-md- 2' id = 'post-<%= post.id %>'>
+        <span class = 'favorite-btn'>
+          <%= render 'public/favorites/btn', post: post %>
+        </span>
+        <span class = 'comments-count'>
+          <i class="fa-regular fa-comment"> </i><%= post.comments.count %>
+        </span>
+      </div>
+
+      <div class = 'col-12 text-right'>
+
+
+
+
+        <% if post.user == current_user %>
+          <%= link_to '編集', edit_post_path(post.id), class: 'btn btn-success' %>
+        <% end %>
+
+        <%= link_to '詳細', post_path(post.id), class: 'btn btn-primary' %>
+      </div>
+      
+    </div>
+
+  </div>
+
+</div>
+
+<% end %>
+<%= paginate @posts %>
