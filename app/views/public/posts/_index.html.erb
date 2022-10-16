@@ -46,11 +46,8 @@
 
 
 
-        <% if post.user == current_user %>
-          <%= link_to '編集', edit_post_path(post.id), class: 'btn btn-success' %>
-        <% end %>
 
-        <%= link_to '詳細', post_path(post.id), class: 'btn btn-primary' %>
+        <%= link_to '詳細', post_path(post.id), class: 'btn btn-secondary' %>
       </div>
       
     </div>
