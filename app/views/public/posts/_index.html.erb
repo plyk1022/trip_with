@@ -42,11 +42,17 @@
       </div>
 
       <div class = 'col-12 text-right'>
+        <% if post.user == current_user %>
+          <% if post.status == 1 %>
+            下書き
+          <% end %>
+        
+        <% end %>
 
 
 
 
-
+        
         <%= link_to '詳細', post_path(post.id), class: 'btn btn-secondary' %>
       </div>
       

@@ -1,5 +1,5 @@
 <div class = 'row'>
-  <div class = 'col-12 col-md-9 mx-auto border border-dark border-dark post-show p-5'>
+  <div class = 'col-12 col-md-9 mx-auto border border-dark border-dark post-show px-5 py-3'>
 
     <div class = 'row'>
       <div class = 'col-12'>
@@ -42,14 +42,14 @@
     </div>
 
     <% @post.schedules.each do |schedule| %>
-      <div class = 'row mt-2'>
+      <div class = 'row '>
         <div class = 'col-12 mt-5'>
           <h2><%=schedule.date.strftime('%Y年 %m月 %d日') %></h2>
         </div>
       </div>
 
       <% schedule.spots.each do |spot| %>
-        <div class = 'row mx-auto mt-5 mt-5'>
+        <div class = 'row mx-auto mt-5'>
           <div class = 'col-12 col-lg-6 border-left border-dark border-dark'>
             <% if spot.arriving_time.nil? %>
               00:00
