@@ -8,7 +8,7 @@
 
 <% posts.each do |post| %>
 <div class = 'row'>
-  <div class = 'col-12 border border-dark p-2 mb-4 post-block'>
+  <div class = 'col-12 border border-dark p-3 mb-4 post-block'>
 
     <div class = 'row'>
       <div class = 'col-2 col-md-1'>
@@ -28,14 +28,14 @@
       </div>
     </div>
 
-    <div class = 'row'>
+    <div class = 'row mt-1'>
       <div class = 'col-12'>
         <h4><%= post.title %></h4>
       </div>
     </div>
     <div class = 'row'>
       <div class = 'col-12'>
-        <p><%= post.body %></p>
+        <p><%= safe_join(post.body.split("\n"),tag(:br)) %></p>
       </div>
     </div>
 
@@ -48,6 +48,7 @@
           <i class="fa-regular fa-comment"> </i><%= post.comments.count %>
         </span>
       </div>
+      
 
       <div class = 'col-12 text-right'>
         <% if post.user == current_user %>
