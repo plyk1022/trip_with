@@ -70,3 +70,15 @@ a {
 input[type="checkbox"] {
   accent-color: #77797f;
 }
+
+
+.field_with_errors {
+  display: contents;
+}
+
+.admin-table-wrap {
+  overflow-x: scroll;
+}
+.admin-table {
+  white-space: nowrap;
+}
