@@ -1,3 +1,11 @@
+<% if posts.count == 0 %>
+<div class = 'row'>
+  <div class = 'col-12'>
+    <h4 class = 'text-center'>まだ投稿がありません。</h4>
+  </div>
+</div>
+<% end %>
+
 <% posts.each do |post| %>
 <div class = 'row'>
   <div class = 'col-12 border border-dark p-2 mb-4 post-block'>
