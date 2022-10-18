@@ -3,7 +3,7 @@
   font-size: 35px;
 }
 
-.copyright {
+.site-name {
   font-family: 'Agentur', cursive;
 }
 
@@ -19,6 +19,12 @@ header, body, footer {
 main {
   background-image: image-url('background-image.jpg');
   background-size:cover;
+  background-position: center;
+}
+
+
+header {
+  posision: fixed;
 }
 
 footer {
