@@ -3,18 +3,26 @@
   font-size: 35px;
 }
 
+.copyright {
+  font-family: 'Agentur', cursive;
+}
+
 
 .nav-item {
   margin-left: 15px;
 }
 
-header, body {
+header, body, footer {
   font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
 }
 
 main {
   background-image: image-url('background-image.jpg');
   background-size:cover;
+}
+
+footer {
+  background-color: #7f7f7f;
 }
 
 
@@ -24,7 +32,7 @@ main {
 }
 
 a {
-  color: #0033cc;
+  color: #2d16a3;
 }
 
 .page-item.active .page-link {

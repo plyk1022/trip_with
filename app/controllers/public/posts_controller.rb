@@ -64,20 +64,21 @@ class Public::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-
-    if params[:commit] == '投稿'
-      if @post.update(status: 0)
-        redirect_to post_path(@post)
+    
+    
+    if @post.update(post_params)
+      
+      if params[:commit] == '投稿'
+        @post.update(status: 0)
       else
-        render 'form'
+        @post.update(status: 1)
       end
+      
+      redirect_to post_path(@post)
     else
-      if @post.update(status: 1)
-        redirect_to post_path(@post)
-      else
-        render 'form'
-      end
+      render 'form'
     end
+    
   end
 
   private
