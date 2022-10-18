@@ -1,8 +1,8 @@
 class Post < ApplicationRecord
 
   with_options presence: true do
-    validates :title, length: { maximum: 25 }
-    validates :body, length: { maximum: 100 }
+    validates :title, length: { maximum: 20 }
+    validates :body, length: { maximum: 200 }
     validates :start_date
     validates :end_date
     validates :prefecture_relation_ids
