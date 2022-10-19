@@ -100,7 +100,7 @@
           <%= link_to '編集', edit_post_path(@post), class: 'btn btn-success btn-block rounded-pill col-6 mx-auto' %>
         </div>
         <div class = 'col-6'>
-          <%= link_to '削除', post_path(@post), method: :delete, class: 'btn btn-danger btn-block rounded-pill col-6 mx-auto' %>
+          <%= link_to '削除', post_path(@post), method: :delete, data: { confirm: "タイトル「#{@post.title}」を削除します。"}, class: 'btn btn-danger btn-block rounded-pill col-6 mx-auto' %>
         </div>
       <% end %>
     </div>
