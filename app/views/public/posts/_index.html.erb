@@ -40,7 +40,7 @@
     </div>
 
     <div class = 'row'>
-      <div class = 'col-4 col-md- 2' id = 'post-<%= post.id %>'>
+      <div class = 'col-12' id = 'post-<%= post.id %>'>
         <span class = 'favorite-btn'>
           <%= render 'public/favorites/btn', post: post %>
         </span>
@@ -48,23 +48,25 @@
           <i class="fa-regular fa-comment"> </i><%= post.comments.count %>
         </span>
       </div>
-      
 
-      <div class = 'col-12 text-right'>
+
+      <div class = 'col-6 pt-3'>
         <% if post.user == current_user %>
           <% if post.status == 1 %>
-            下書き
+           <span class = 'border text-danger border-danger p-1'>下書き</span>
           <% end %>
-        
+
         <% end %>
 
+      </div>
+
+      <div class = 'col-6 text-right'>
 
 
 
-        
         <%= link_to '詳細', post_path(post.id), class: 'btn btn-secondary' %>
       </div>
-      
+
     </div>
 
   </div>
