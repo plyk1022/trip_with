@@ -8,6 +8,10 @@ class Public::UsersController < ApplicationController
     @posts = @user.posts.order(created_at: 'DESC')
     @search = params[:search]
     
+    unless current_user == @user
+      @posts = @posts.where(status: 0)
+    end
+    
     if @search == '公開中の投稿'
       @posts = @posts.where(status: 0)
     elsif @search == '下書き'
@@ -27,6 +31,7 @@ class Public::UsersController < ApplicationController
     redirect_to user_path(@user)
   end
   
+  
   private
   
   def user_params
@@ -37,13 +42,12 @@ class Public::UsersController < ApplicationController
     @user = User.find(params[:id])
     redirect_to posts_path  unless @user == current_user
   end
-  
-  
+
   def ensure_guest_user
     @user = User.find(params[:id])
     if @user.name == 'ゲストユーザー'
-      redirect_to posts_path , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+      redirect_to posts_path
+      flash[:alert] = 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
     end
   end  
-    
 end
