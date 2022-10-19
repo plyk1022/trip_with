@@ -18,7 +18,6 @@ class Public::SessionsController < Devise::SessionsController
   end
 
 
-
   protected
 
   def user_state
@@ -29,9 +28,4 @@ class Public::SessionsController < Devise::SessionsController
       redirect_to new_user_registration_path
     end
   end
-
-
-
-
-
 end
