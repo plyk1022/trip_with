@@ -5,6 +5,9 @@ class Public::PostsController < ApplicationController
   def new
     @post = Post.new
     @post.prefecture_relations.build
+    
+    
+    
   end
 
   def form
