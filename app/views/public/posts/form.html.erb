@@ -2,7 +2,7 @@
   <div class = ' col-12 col-md-7 mx-auto'>
     <% if @post.errors.any? %>
       <% @post.errors.full_messages.each do |message| %>
-        <li class = 'text-danger'><%=  message %></li>
+        <li class = 'text-danger mx-auto'><%=  message %></li>
       <% end %>
     <% end %>
     <div class = 'card border-dark'>
