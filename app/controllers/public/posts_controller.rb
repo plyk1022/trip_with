@@ -52,7 +52,7 @@ class Public::PostsController < ApplicationController
 
   def index
     @prefectures = Prefecture.all
-    @posts = Post.where(status: 0).order(created_at: "DESC").page(params[:page])
+    @posts = Post.where(status: 0).order(created_at: 'DESC').page(params[:page])
   end
 
   def show

@@ -2,14 +2,16 @@
   <div class = 'col-11 mx-auto'>
 
     <div class = 'row'>
-      <div class = 'col-12 col-md-4'>
+      <div class = 'col-12 col-md-3'>
         <h4>マイページ</h4>
       </div>
-
-      <div class = 'col-12 col-md-3'>
-        <%= form_with url: user_path(@user), method: :get do |f| %>
-          <%= f.select :search, options_for_select([['すべての投稿'], ['公開中の投稿'],['下書き']], @search), class: 'form-control' %>
-          <%= f.submit '表示', class: 'btn btn-sm btn-secondary' %>
+      
+      <div class = 'col-12 col-md-8 text-right'>
+        <% if @posts.count != 0 || current_user != @user %>
+          <%= form_with url: user_path(@user), method: :get do |f| %>
+            <%= f.select :search, options_for_select([['すべての投稿'], ['公開中の投稿'],['下書き']], @search), class: 'form-control' %>
+            <%= f.submit '表示', class: 'btn btn-sm btn-secondary' %>
+          <% end %>
         <% end %>
       </div>
     </div>
