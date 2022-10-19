@@ -57,8 +57,8 @@
               <%= spot.arriving_time.strftime('%H:%M') %>
             <% end %>
 
-            <div class = 'image'>
-              <%= image_tag spot.get_spot_image(400,225), class: 'img-fluid' %>
+            <div class = 'image ml-2'>
+              <%= image_tag spot.get_spot_image(380,267), class: 'img-fluid' %>
             </div>
 
             <% if spot.leaving_time.nil? %>

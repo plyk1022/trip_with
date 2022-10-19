@@ -11,9 +11,10 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.start_date > @post.end_date
+      flash.now[:alert] = '開始日は終了日より遅い日付を入力してください'
       render 'new'
     end
-
+    
     @trip_days = (@post.end_date - @post.start_date).to_i + 1
     date = @post.start_date
 
@@ -27,6 +28,7 @@ class Public::PostsController < ApplicationController
   end
 
   def create
+    
     @post = Post.new(post_params)
     @post.user_id = current_user.id
 
@@ -37,6 +39,7 @@ class Public::PostsController < ApplicationController
     if @post.save
       redirect_to post_path(@post)
     else
+      flash.now[:alert] = '入力内容を確認してください'
       render 'form'
     end
   end
@@ -44,6 +47,7 @@ class Public::PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
+    flash[:alert] = "タイトル「#{@post.title}」を削除しました"
     redirect_to posts_path
   end
 
