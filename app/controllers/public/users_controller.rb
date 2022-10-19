@@ -5,7 +5,15 @@ class Public::UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
+    @posts = @user.posts.order(created_at: 'DESC')
+    @search = params[:search]
+    
+    if @search == '公開中の投稿'
+      @posts = @posts.where(status: 0)
+    elsif @search == '下書き'
+      @posts = @posts.where(status: 1)
+    end
+
     @posts = Kaminari.paginate_array(@posts).page(params[:page])
   end
 
@@ -33,7 +41,7 @@ class Public::UsersController < ApplicationController
   
   def ensure_guest_user
     @user = User.find(params[:id])
-    if @user.name == "ゲストユーザー"
+    if @user.name == 'ゲストユーザー'
       redirect_to posts_path , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
     end
   end  

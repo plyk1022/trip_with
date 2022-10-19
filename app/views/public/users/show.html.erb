@@ -1,13 +1,28 @@
 <div class = 'row'>
   <div class = 'col-11 mx-auto'>
+    
+    <div class = 'row'>
+      <div class = 'col-12 col-md-3'>
+        <h4>マイページ</h4>
+      </div>
+      
+      <div class = 'col-12 col-md-8 mx-auto'>
+        <%= form_with url: user_path(@user), method: :get do |f| %>
+          <%= f.select :search, options_for_select([['すべての投稿'], ['公開中の投稿'],['下書き']], @search), class: 'form-control' %>
+          <%= f.submit '表示', class: 'btn btn-sm btn-secondary' %>
+        <% end %>
+      </div>
+    </div>
+
     <div class = 'row'>
       <div class = 'col-12 col-md-3 mx-auto'>
         <%= render 'info', user: @user %>
       </div>
       
-      <div class = 'col-12 col-md-8 mx-auto'>
+      <div class = 'col-12 col-md-8 mx-auto mb-5'>
         <%= render 'public/posts/index', posts: @posts %>
       </div>
     </div>
+    
   </div>
 </div>
