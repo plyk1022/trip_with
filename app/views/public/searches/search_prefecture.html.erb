@@ -8,7 +8,7 @@
 
       <div class = 'col-12 col-md-8 ml-5 mx-auto'>
         <% if @posts.count == 0 %>
-          <h4 class = 'text-center'>「<%= @prefecture.name %>」に一致する投稿は見つかりませんでした。</h4>
+          <h4 class = 'mt-5 text-center'>「<%= @prefecture.name %>」に一致する投稿は見つかりませんでした。</h4>
         <% else %>
           <%= render 'public/posts/index', posts: @posts %>
         <% end %>
