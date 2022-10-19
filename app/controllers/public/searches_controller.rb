@@ -6,10 +6,10 @@ class Public::SearchesController < ApplicationController
     @range = params[:range]
 
     if @range == 'タイトル'
-      @posts = Post.looks(@range, @word)
+      @posts = Post.looks(@range, @word).where(status: 0)
       @posts = Kaminari.paginate_array(@posts).page(params[:page])
     else
-      @posts = Post.joins(schedules: :spots).looks(@range, @word).distinct
+      @posts = Post.joins(schedules: :spots).looks(@range, @word).where(status: 0).distinct
       @posts = Kaminari.paginate_array(@posts).page(params[:page])
     end
   end
@@ -18,7 +18,7 @@ class Public::SearchesController < ApplicationController
     @prefectures = Prefecture.all
     @prefecture = Prefecture.find(params[:prefecture_id])
     
-    @posts = @prefecture.posts
+    @posts = @prefecture.posts.where(status: 0)
     @posts = Kaminari.paginate_array(@posts).page(params[:page])
   end
 
