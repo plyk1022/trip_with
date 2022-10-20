@@ -6,11 +6,12 @@ class Spot < ApplicationRecord
     validates :arriving_time
     validates :leaving_time
   end
-
+  
+  validate :time_check
 
   def time_check
     if arriving_time.present? && leaving_time.present?
-      errors.add(:leaving_time, "は出発時間より遅い時間を入力してください") unless arriving_time <= leaving_time
+      errors.add(:leaving_time, "は到着時間より遅い時間を入力してください") unless arriving_time <= leaving_time
     end
   end
 

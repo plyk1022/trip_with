@@ -4,7 +4,6 @@ class Public::UsersController < ApplicationController
   before_action :ensure_guest_user, only: [:edit]
 
   def index
-    redirect_to new_user_registration_path
   end
 
   def show
