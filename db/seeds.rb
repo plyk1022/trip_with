@@ -1,5 +1,5 @@
 Admin.create(
-  email: 'admin@trip-with.com', 
+  email: 'admin@trip-with.com',
   password: 'admin-trip-with'
   )
 
@@ -50,3 +50,13 @@ Prefecture.create(name: '大分県')
 Prefecture.create(name: '宮崎県')
 Prefecture.create(name: '鹿児島県')
 Prefecture.create(name: '沖縄県')
+
+users = User.create!(
+  [
+    {email: 'trip-taro@test.com', name: 'トリップ太郎', introduction: 'test', password: 'password', profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user1.jpeg"), filename:"sample-user1.jpeg")},
+    {email: 'travel-hanako@test.com', name: 'トラベル花子', introduction: 'test', password: 'password', profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user2.jpeg"), filename:"sample-user2.jpeg")},
+    {email: 'toricco@test.com', name: 'とりっこ@一人旅', introduction: 'test', password: 'password', profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user3.jpeg"), filename:"sample-user3.jpeg")},
+    {email: 'ryoko-shosinsha@test.com', name: '旅行初心者', introduction: 'test', password: 'password', profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user4.jpeg"), filename:"sample-user2.jpeg")},
+    {email: 'itiro@test.com', name: '一郎＠日本一周', introduction: 'test', password: 'password', profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user5.jpeg"), filename:"sample-user3.jpeg")}
+  ]
+)
