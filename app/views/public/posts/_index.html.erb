@@ -1,12 +1,14 @@
 <% if posts.count == 0 %>
-<div class = 'row'>
-  <div class = 'col-12'>
-    <h4 class = 'mt-5 text-center'>まだ投稿がありません。</h4>
+  <div class = 'row'>
+    <div class = 'col-12'>
+      <h4 class = 'mt-5 text-center'>まだ投稿がありません。</h4>
+    </div>
   </div>
-</div>
 <% end %>
 
-<%= page_entries_info @posts %>
+<% if posts.count != 0 %>
+  <%= page_entries_info @posts %>
+<% end %>
 
 <% posts.each do |post| %>
 <div class = 'row'>
