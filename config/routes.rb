@@ -26,9 +26,9 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get 'search' => 'searches#search'
     get 'search_prefecture' => 'searches#search_prefecture'
-    resources :users, only:[:show, :edit, :update]
+    resources :users, only:[:index, :show, :edit, :update]
 
-    post 'posts/form' => 'posts#form', as: 'form'
+    get 'posts/form' => 'posts#form', as: 'form'
     get 'favorites/index', as: 'favorites'
     
     resources :posts do

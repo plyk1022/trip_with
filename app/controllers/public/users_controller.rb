@@ -2,16 +2,20 @@ class Public::UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_current_user, only: [:edit]
   before_action :ensure_guest_user, only: [:edit]
-  
+
+  def index
+    redirect_to new_user_registration_path
+  end
+
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.order(created_at: 'DESC')
     @search = params[:search]
-    
+
     unless current_user == @user
       @posts = @posts.where(status: 0)
     end
-    
+
     if @search == '公開中の投稿'
       @posts = @posts.where(status: 0)
     elsif @search == '下書き'
@@ -24,20 +28,20 @@ class Public::UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
-  
+
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
     redirect_to user_path(@user)
   end
-  
-  
+
+
   private
-  
+
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)
   end
-  
+
   def ensure_current_user
     @user = User.find(params[:id])
     redirect_to posts_path  unless @user == current_user
@@ -49,5 +53,5 @@ class Public::UsersController < ApplicationController
       redirect_to posts_path
       flash[:alert] = 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
     end
-  end  
+  end
 end
