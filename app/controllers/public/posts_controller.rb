@@ -34,7 +34,7 @@ class Public::PostsController < ApplicationController
     if params[:commit] == '下書きに保存'
       @post.status = 1
       if @post.save
-        flash[:notice] = "「#{post_params[:title]}」を下書きに保存しました。"
+        flash[:notice] = "タイトル「#{post_params[:title]}」を下書きに保存しました。"
         redirect_to post_path(@post)
       else
         flash.now[:alert] = '入力内容を確認してください'
@@ -42,7 +42,7 @@ class Public::PostsController < ApplicationController
       end
     else
       if @post.save
-        flash[:notice] = "「#{post_params[:title]}」を投稿しました。"
+        flash[:notice] = "タイトル「#{post_params[:title]}」を投稿しました。"
         redirect_to post_path(@post)
       else
         flash.now[:alert] = '入力内容を確認してください'
@@ -77,11 +77,12 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     if @post.update(post_params)
-
       if params[:commit] == '投稿'
         @post.update(status: 0)
+        flash[:notice] = "タイトル「#{post_params[:title]}」の編集内容を保存しました。"
       else
         @post.update(status: 1)
+        flash[:notice] = "タイトル「#{post_params[:title]}」を下書きに保存しました。"
       end
       redirect_to post_path(@post)
     else
