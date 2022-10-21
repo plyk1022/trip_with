@@ -1,5 +1,4 @@
 <div class = 'row'>
-
   <div class = 'col-10 mx-auto admin-table-wrap'>
     <h2>投稿一覧</h2>
     <table class = 'table table-bordered admin-table'>
@@ -19,14 +18,12 @@
             <td class = 'text-center'><%= post.created_at.strftime('%Y-%m-%d %H:%M') %></td>
             <td class = 'text-center'><%= post.title %></td>
             <td class = 'text-center'><%= post.user.name %></td>
-            <td class = 'text-center'><%= link_to '詳細', admin_post_path(post) %></td>
+            <td class = 'text-center'><%= link_to '詳細', admin_post_path(post), class: 'btn btn-sm btn-secondary' %></td>
           </tr>
         <% end %>
       </tbody>
 
     </table>
-    
     <%= paginate @posts %>
-
   </div>
 </div>

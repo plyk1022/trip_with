@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     resources :posts, only:[:show, :edit, :destroy]
     resources :users, only:[:index, :show, :update]
-    resources :comments, only:[:index, :destroy]
+    resources :comments, only:[:index, :show, :destroy]
   end
 
   scope module: :public do
