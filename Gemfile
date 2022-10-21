@@ -59,6 +59,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem "cocoon"
 gem 'kaminari','~> 1.2.1'
+gem 'whenever', require: false
 
 gem 'dotenv-rails'
 group :production do
