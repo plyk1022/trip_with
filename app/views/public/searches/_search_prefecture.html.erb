@@ -3,7 +3,7 @@
   <% prefectures.each do |pref| %>
     <div class = 'col-4 col-md-6 text-center'>
       <%= link_to pref.name, search_prefecture_path(prefecture_id: pref.id) %>
-      <%= "(#{pref.posts.count})" %>
+      <%= "(#{pref.posts.where(status: 0).count})" %>
     </div>
   <% end %>
 </div>
