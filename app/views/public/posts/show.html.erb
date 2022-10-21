@@ -1,5 +1,5 @@
 <div class = 'row'>
-  <div class = 'col-11 col-md-9 mx-auto border border-dark border-dark post-show px-5 py-5'>
+  <div class = 'col-11 col-md-9 mx-auto border border-dark border-dark post-show px-5 pt-5 pb-4'>
 
     <div class = 'row'>
       <div class = 'col-12'>
@@ -33,7 +33,6 @@
 
 
     <div class = 'row'>
-
       <div class = 'col-12 mt-2' style = 'margin-left: 30px;'>
         <% @post.prefecture_relations.each do |pref| %>
           <span class = 'border p-1 mx-1'><%= pref.prefecture.name %></span>

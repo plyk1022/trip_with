@@ -37,8 +37,6 @@ footer {
   background-color: #fff;
 }
 
-td, th {
-}
 
 a {
   color: #2d16a3;
@@ -49,20 +47,17 @@ a {
 }
 
 
-/*ページネーション自体のデザイン*/
 .pagination > li > a {
-  border: none;     /*枠線をなくす*/
-  color: #696969;   /*文字の色を変える*/
+  border: none;
+  color: #696969;
 }
 
-/* 表示しているページ番号のデザイン */
 .pagination > .active > a {
-  border-radius: 20px;     /*角を丸くする*/
+  border-radius: 20px;
 }
 
-/*ホバー時のデザイン*/
 .pagination > li > a:hover {
-  border-radius: 20px;    /*角を丸くする*/
+  border-radius: 20px;
 }
 
 .pagination {
