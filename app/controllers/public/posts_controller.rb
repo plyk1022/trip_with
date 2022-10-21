@@ -11,10 +11,10 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.start_date > @post.end_date
-      flash.now[:alert] = '開始日は終了日より遅い日付を入力してください'
+      flash.now[:alert] = '終了日は開始日より遅い日付を入力してください'
       render 'new'
     end
-    
+
     @trip_days = (@post.end_date - @post.start_date).to_i + 1
     date = @post.start_date
 
@@ -33,14 +33,23 @@ class Public::PostsController < ApplicationController
 
     if params[:commit] == '下書きに保存'
       @post.status = 1
+      if @post.save
+        flash[:notice] = "「#{post_params[:title]}」を下書きに保存しました。"
+        redirect_to post_path(@post)
+      else
+        flash.now[:alert] = '入力内容を確認してください'
+        render 'form'
+      end
+    else
+      if @post.save
+        flash[:notice] = "「#{post_params[:title]}」を投稿しました。"
+        redirect_to post_path(@post)
+      else
+        flash.now[:alert] = '入力内容を確認してください'
+        render 'form'
+      end
     end
 
-    if @post.save
-      redirect_to post_path(@post)
-    else
-      flash.now[:alert] = '入力内容を確認してください'
-      render 'form'
-    end
   end
 
   def destroy
@@ -66,10 +75,9 @@ class Public::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    
-    
+
     if @post.update(post_params)
-      
+
       if params[:commit] == '投稿'
         @post.update(status: 0)
       else
@@ -77,6 +85,7 @@ class Public::PostsController < ApplicationController
       end
       redirect_to post_path(@post)
     else
+      flash[:alert] = '入力内容を確認してください。'
       render 'form'
     end
   end
