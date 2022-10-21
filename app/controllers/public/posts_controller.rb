@@ -5,9 +5,6 @@ class Public::PostsController < ApplicationController
   def new
     @post = Post.new
     @post.prefecture_relations.build
-    
-    
-    
   end
 
   def form
@@ -31,7 +28,6 @@ class Public::PostsController < ApplicationController
   end
 
   def create
-    
     @post = Post.new(post_params)
     @post.user_id = current_user.id
 
@@ -56,7 +52,7 @@ class Public::PostsController < ApplicationController
 
   def index
     @prefectures = Prefecture.all
-    @posts = Post.where(status: 0).order(created_at: "DESC").page(params[:page])
+    @posts = Post.where(status: 0).order(created_at: 'DESC').page(params[:page])
   end
 
   def show
@@ -66,7 +62,6 @@ class Public::PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-
   end
 
   def update
@@ -80,12 +75,10 @@ class Public::PostsController < ApplicationController
       else
         @post.update(status: 1)
       end
-      
       redirect_to post_path(@post)
     else
       render 'form'
     end
-    
   end
 
   private

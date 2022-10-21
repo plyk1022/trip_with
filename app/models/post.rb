@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
 
   with_options presence: true do
-    validates :title, length: { maximum: 20 }
+    validates :title, length: { maximum: 30 }
     validates :body, length: { maximum: 200 }
     validates :start_date
     validates :end_date
