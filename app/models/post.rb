@@ -1,13 +1,14 @@
 class Post < ApplicationRecord
 
-  with_options presence: true do
+  with_options presence: true, on: :published do
     validates :title, length: { maximum: 30 }
     validates :body, length: { maximum: 200 }
     validates :start_date
     validates :end_date
     validates :prefecture_relation_ids
   end
-
+  
+  validates :title, presence: true, length: { maximum: 30 }
 
 
   belongs_to :user
