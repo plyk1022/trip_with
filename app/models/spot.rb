@@ -1,6 +1,6 @@
 class Spot < ApplicationRecord
 
-  with_options presence: true do
+  with_options presence: true, on: :published do
     validates :name, length: { maximum: 30 }
     validates :comment, length: { maximum: 200 }
     validates :arriving_time
