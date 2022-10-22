@@ -102,8 +102,8 @@ ActiveRecord::Schema.define(version: 2022_10_02_111936) do
     t.integer "schedule_id", null: false
     t.string "name", null: false
     t.text "comment", null: false
-    t.time "arriving_time", null: false
-    t.time "leaving_time", null: false
+    t.time "arriving_time"
+    t.time "leaving_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

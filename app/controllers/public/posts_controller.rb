@@ -97,27 +97,7 @@ class Public::PostsController < ApplicationController
         render 'form'
       end
     end
-      
-    
-    
-    
-    
-    
-    
-
-    # if @post.update(post_params)
-    #   if params[:commit] == '投稿'
-    #     @post.update(status: 0)
-    #     flash[:notice] = "タイトル「#{post_params[:title]}」の編集内容を保存しました。"
-    #   else
-    #     @post.update(status: 1)
-    #     flash[:notice] = "タイトル「#{post_params[:title]}」を下書きに保存しました。"
-    #   end
-    #   redirect_to post_path(@post)
-    # else
-    #   flash[:alert] = '入力内容を確認してください。'
-    #   render 'form'
-    # end
+  
   end
 
   private
