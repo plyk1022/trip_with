@@ -20,13 +20,13 @@
     <div class = 'col-5'>
       <div class = 'form-group'>
         <%= f.label :arriving_time, '到着時間',  class: 'form-label' %>
-        <%= f.time_field :arriving_time, class: 'form-control' %>
+        <%= f.time_field :arriving_time, value: '00:00', class: 'form-control' %>
       </div>
     </div>
     <div class = 'col-5'>
       <div class = 'form-group'>
         <%= f.label :leaving_time, '出発時間', class: 'form-label' %>
-        <%= f.time_field :leaving_time, class: 'form-control' %>
+        <%= f.time_field :leaving_time, value: '00:00', class: 'form-control' %>
       </div>
     </div>
     <div class = 'col-10'>

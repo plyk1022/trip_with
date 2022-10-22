@@ -50,11 +50,11 @@
       <% schedule.spots.each do |spot| %>
         <div class = 'row mx-auto mt-5'>
           <div class = 'col-12 col-lg-6 border-left border-dark border-dark'>
-            <%= spot.arriving_time&.strftime('%H:%M') %>
+            <%= spot.arriving_time.strftime('%H:%M') %>
             <div class = 'image ml-2'>
               <%= image_tag spot.get_spot_image(380,267), class: 'img-fluid' %>
             </div>
-              <%= spot.leaving_time&.strftime('%H:%M') %>
+              <%= spot.leaving_time.strftime('%H:%M') %>
           </div>
 
           <div class = 'col-12 col-lg-6'>
