@@ -1,10 +1,12 @@
 <div class = 'row'>
   <div class = ' col-12 col-md-7 mx-auto'>
-    <% if @post.errors.any? %>
-      <% @post.errors.full_messages.each do |message| %>
-        <li class = 'text-danger mx-auto'><%=  message %></li>
+    <div class 'error_messages'>
+      <% if @post.errors.any? %>
+        <% @post.errors.full_messages.each do |message| %>
+          <li class = 'text-danger mx-auto'><%=  message %></li>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
     <div class = 'card border-dark'>
       <h2 class = 'card-header border-dark text-center'>旅行記録詳細</h2>
       <%= render 'form', post:  @post%>
