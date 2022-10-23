@@ -50,11 +50,21 @@
       <% schedule.spots.each do |spot| %>
         <div class = 'row mx-auto mt-5'>
           <div class = 'col-12 col-lg-6 border-left border-dark border-dark'>
-            <%= spot.arriving_time.strftime('%H:%M') %>
+
+            <% if spot.arriving_time.present? %>
+              <%= spot.arriving_time.strftime('%H:%M') %>
+            <% else %>
+              00:00
+            <% end %>
             <div class = 'image ml-2'>
               <%= image_tag spot.get_spot_image(380,267), class: 'img-fluid' %>
             </div>
+            <% if spot.leaving_time.present? %>
               <%= spot.leaving_time.strftime('%H:%M') %>
+            <% else %>
+              00:00
+            <% end %>
+
           </div>
 
           <div class = 'col-12 col-lg-6'>
