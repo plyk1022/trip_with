@@ -34,9 +34,9 @@
         <td><%= @user.is_deleted ? '退会':'有効' %></td>
         <td>
           <% if @user.is_deleted %>
-            <%= link_to '有効にする', admin_user_path(@user.id, user: {is_deleted: false}), data: { confirm: "ユーザー名「#{@user.name}」の退会処理を行います。" }, method: :patch, class: 'btn btn-success btn-sm' %>
+            <%= link_to '有効にする', admin_user_path(@user.id, user: {is_deleted: false}), data: { confirm: "ユーザー名「#{@user.name}」を有効にします。" }, method: :patch, class: 'btn btn-success btn-sm' %>
           <% else %>
-            <%= link_to '退会させる', admin_user_path(@user.id, user: {is_deleted: true}), data: { confirm: "ユーザー名「#{@user.name}」を有効にします。" }, method: :patch, class: 'btn btn-danger btn-sm' %>
+            <%= link_to '退会させる', admin_user_path(@user.id, user: {is_deleted: true}), data: { confirm: "ユーザー名「#{@user.name}」の退会処理を行います。" }, method: :patch, class: 'btn btn-danger btn-sm' %>
           <% end %>
         </td>
       </tr>
