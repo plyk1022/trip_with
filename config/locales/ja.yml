@@ -5,10 +5,12 @@ ja:
         name: ユーザーネーム
         email: メールアドレス
         password: パスワード
+      admin:
+        email: メールアドレス
       post:
         title: タイトル
         body: 概要
-        prefecture_relation_ids: 都道府県
+        prefecture_ids: 都道府県
       post/schedules:
         date: スケジュール
       schedules/spots:

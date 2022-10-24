@@ -5,8 +5,12 @@ class Post < ApplicationRecord
     validates :body, length: { maximum: 200 }
     validates :start_date
     validates :end_date
-    validates :prefecture_relation_ids
+    validates :prefecture_ids
+    
+    
   end
+  
+  
   
   validates :title, presence: true, length: { maximum: 30 }
 

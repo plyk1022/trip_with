@@ -1,7 +1,7 @@
 <%= form_with model: post do |f| %>
   <div class = 'row'>
     <div class = 'col-11 mx-auto'>
-      
+
       <div class = 'form-group'>
         <!--データ送信用の隠しフィールド-->
         <%= f.hidden_field :start_date %>
@@ -12,31 +12,31 @@
         <h4><%= f.label :title, 'タイトル', class: 'form-label' %></h4>
         <%= f.text_field :title, class: 'form-control' %>
       </div>
-      
+
       <div class = 'form-group'>
         <h4><%= f.label :body, '概要', class: 'form-label' %></h4>
         <%= f.text_area :body, rows: '3', class: 'form-control' %>
       </div>
-  
+
       <div class = 'form-group mt-5'>
-        <h4><%= f.label :prefecture, '都道府県(複数選択可)', class: 'form-label' %></h4>
+        <h4><%= f.label :prefecture_ids, '都道府県(複数選択可)', class: 'form-label' %></h4>
         <div class = 'row mx-auto'>
           <%= f.collection_check_boxes(:prefecture_ids, Prefecture.all, :id, :name) do |pref| %>
-            <div class = 'col-6 col-md-2'>
+            <div class = 'col-6 col-md-2 select-prefectures'>
               <%= pref.check_box %>
               <%= pref.text %>
             </div>
           <% end %>
         </div>
       </div>
-  
+
       <div class = 'form-group mt-5'>
         <h4>スケジュール</h4>
           <%= f.fields_for :schedules do |schedule| %>
             <%= render 'public/posts/schedule', {f: schedule, post: post} %>
           <% end %>
       </div>
-  
+
       <div class = 'form-group'>
         <div class = 'row mb-4'>
           <div class = 'col-5 mx-auto'>
