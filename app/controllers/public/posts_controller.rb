@@ -9,12 +9,14 @@ class Public::PostsController < ApplicationController
 
   def form
     @post = Post.new(post_params)
-
+    
+    # 開始日と終了日の内容チェック
     if @post.start_date > @post.end_date
       flash.now[:alert] = '終了日は開始日より遅い日付を入力してください'
       render 'new'
     end
-
+    
+    # 開始日と入力日から旅行日数を計算、日数分のフォームを作成
     @trip_days = (@post.end_date - @post.start_date).to_i + 1
     date = @post.start_date
 
@@ -30,7 +32,8 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-
+    
+    # 「下書きに保存」ボタンの場合
     if params[:commit] == '下書きに保存'
       @post.status = 1
       if @post.save
@@ -40,7 +43,7 @@ class Public::PostsController < ApplicationController
         flash.now[:alert] = '入力内容を確認してください'
         render 'form'
       end
-
+    # 「投稿」ボタンの場合
     else
       if @post.save(context: :published)
         flash[:notice] = "タイトル「#{post_params[:title]}」を投稿しました"
@@ -76,7 +79,8 @@ class Public::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-
+    
+    # 「下書きに保存」ボタンの場合
     if params[:commit] == '下書きに保存'
       @post.attributes = post_params.merge(status: 1)
       if @post.save
@@ -86,9 +90,9 @@ class Public::PostsController < ApplicationController
         flash.now[:alert] = '入力内容を確認してください'
         render 'form'
       end
+    # 「投稿」ボタンの場合
     else
       @post.attributes = post_params.merge(status: 0)
-
       if @post.save(context: :published)
         flash[:notice] = "タイトル「#{post_params[:title]}」を投稿しました"
         redirect_to post_path(@post)
@@ -97,7 +101,6 @@ class Public::PostsController < ApplicationController
         render 'form'
       end
     end
-
   end
 
   private

@@ -5,7 +5,6 @@
         <%= render 'public/searches/search_form', post: @post %>
         <%= render 'public/searches/search_prefecture', prefectures: @prefectures %>
       </div>
-
       <div class = 'col-12 col-md-8 ml-5 mx-auto'>
         <% if @posts.count == 0 %>
           <h4 class = 'mt-5 text-center'>「<%= @prefecture.name %>」に一致する投稿は見つかりませんでした。</h4>
