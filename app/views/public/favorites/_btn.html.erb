@@ -2,7 +2,6 @@
   <%= link_to post_favorites_path(post), method: :delete, remote: true, class: 'text-dark', style: 'text-decoration: none;' do %>
     <i class="fas fa-heart", style = 'color: red;'></i> <%= post.favorites.count %>
   <% end %>
-
 <% else %>
   <%= link_to post_favorites_path(post), method: :post, remote: true, class: 'text-dark', style: 'text-decoration: none;' do %>
     <i class="fa-regular fa-heart"></i> <%= post.favorites.count %>
