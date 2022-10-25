@@ -1,5 +1,12 @@
 <div class = 'row'>
   <div class = 'col-12 col-md-7 mx-auto'>
+     <div class 'error_messages'>
+      <% if user.errors.any? %>
+        <% user.errors.full_messages.each do |message| %>
+          <li class = 'text-danger mx-auto'><%=  message %></li>
+        <% end %>
+      <% end %>
+    </div>
     <div class = 'card'>
       <h2 class = 'card-header text-center'>登録情報編集</h2>
 
