@@ -1,0 +1,71 @@
+
+postモデルのテスト
+  バリデーションのテスト
+    titleカラム
+[32m      空欄でないこと[0m
+[31m      30文字以下であること: 30文字は〇 (FAILED - 1)[0m
+[32m      30文字以下であること: 31文字は×[0m
+    bodyカラム
+[32m      空欄でないこと[0m
+[31m      200文字以内であること:200文字は○ (FAILED - 2)[0m
+[32m      200文字以内であること:201文字は×[0m
+  アソシエーションのテスト
+    Userモデルとの関係
+[32m      N:1となっている[0m
+    Scheduleモデルとの関係
+[32m      1:Nとなっている[0m
+
+Userモデルのテスト
+  バリデーションのテスト
+    nameカラム
+[32m      空欄でないこと[0m
+[32m      15文字以下であること: 15文字は〇[0m
+[32m      15文字以下であること: 16文字は×[0m
+[32m      一意性があること[0m
+    introductionカラム
+[32m      100文字以下であること: 100文字は〇[0m
+[32m      100文字以下であること: 101文字は×[0m
+  アソシエーションのテスト
+    Postモデルとの関係
+[32m      1:Nとなっている[0m
+
+Failures:
+
+  1) postモデルのテスト バリデーションのテスト titleカラム 30文字以下であること: 30文字は〇
+     [31mFailure/Error: [0mis_expected.to eq [1;36mtrue[0m[0m
+     [31m[0m
+     [31m  expected: true[0m
+     [31m       got: false[0m
+     [31m[0m
+     [31m  (compared using ==)[0m
+     [31m[0m
+     [31m  Diff:[0m[0m
+     [31m  [0m[34m@@ -1 +1 @@[0m
+     [31m  [0m[31m-true[0m
+     [31m  [0m[32m+false[0m
+     [31m  [0m[0m
+     [36m# ./spec/models/post_spec.rb:19:in `block (4 levels) in <top (required)>'[0m
+
+  2) postモデルのテスト バリデーションのテスト bodyカラム 200文字以内であること:200文字は○
+     [31mFailure/Error: [0mis_expected.to eq [1;36mtrue[0m[0m
+     [31m[0m
+     [31m  expected: true[0m
+     [31m       got: false[0m
+     [31m[0m
+     [31m  (compared using ==)[0m
+     [31m[0m
+     [31m  Diff:[0m[0m
+     [31m  [0m[34m@@ -1 +1 @@[0m
+     [31m  [0m[31m-true[0m
+     [31m  [0m[32m+false[0m
+     [31m  [0m[0m
+     [36m# ./spec/models/post_spec.rb:34:in `block (4 levels) in <top (required)>'[0m
+
+Finished in 0.93707 seconds (files took 2.46 seconds to load)
+[31m15 examples, 2 failures[0m
+
+Failed examples:
+
+[31mrspec ./spec/models/post_spec.rb:17[0m [36m# postモデルのテスト バリデーションのテスト titleカラム 30文字以下であること: 30文字は〇[0m
+[31mrspec ./spec/models/post_spec.rb:32[0m [36m# postモデルのテスト バリデーションのテスト bodyカラム 200文字以内であること:200文字は○[0m
+
