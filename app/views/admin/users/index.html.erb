@@ -19,13 +19,13 @@
             <td class = 'text-center'><%= user.id %></td>
             <td class = 'text-center'><%= user.name %></td>
             <td><%= user.introduction %></td>
-            <td class = 'text-center'><%= user.posts.count %></td>
+            <td class = 'text-center'><%= user.posts.where(status: 0).count %></td>
             <td class = 'text-center'><%= user.comments.count %></td>
             <td class = 'text-center'>
               <% if user.is_deleted %>
                 <p class = 'm-0'>退会</p>
               <% else %>
-              <p class = 'text-success m-0'>有効</p>
+                <p class = 'text-success m-0'>有効</p>
               <% end %>
             </td>
             <td class = 'text-center'><%= link_to '詳細', admin_user_path(user), class: 'btn btn-sm btn-secondary' %></td>

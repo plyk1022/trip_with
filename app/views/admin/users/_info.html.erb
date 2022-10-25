@@ -2,7 +2,7 @@
   <div class = 'col-12 p-2 border border-dark user-info'>
     <div class = 'row'>
       <div class = 'col-12'>
-        <%= image_tag user.get_profile_image(70, 70), class: 'rounded-circle border' %>
+        <%= image_tag user.get_profile_image(50, 50), class: 'rounded-circle border' %>
         <%= user.name %>
       </div>
     </div>
@@ -31,7 +31,11 @@
     <tbody>
       <tr class = 'text-center'>
         <th>ステータス</th>
-        <td><%= @user.is_deleted ? '退会':'有効' %></td>
+        <td><% if @user.is_deleted %>
+                <p class = 'm-0'>退会</p>
+              <% else %>
+              <p class = 'text-success m-0'>有効</p>
+              <% end %></td>
         <td>
           <% if @user.is_deleted %>
             <%= link_to '有効にする', admin_user_path(@user.id, user: {is_deleted: false}), data: { confirm: "ユーザー名「#{@user.name}」を有効にします。" }, method: :patch, class: 'btn btn-success btn-sm' %>

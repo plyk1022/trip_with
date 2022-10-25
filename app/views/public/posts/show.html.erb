@@ -1,6 +1,6 @@
 <div class = 'row'>
   <div class = 'col-11 col-md-9 mx-auto border border-dark border-dark post-show px-5 pt-5 pb-4'>
-
+    <!--投稿情報（タイトル・概要・いいね数・コメント数・都道府県）-->
     <div class = 'row'>
       <div class = 'col-12'>
       <h2><%= @post.title %></h2>
@@ -14,7 +14,9 @@
 
     <div class = 'row'>
       <div class = 'col-12'>
-        <%= image_tag @post.user.get_profile_image(30, 30), class: 'rounded-circle border' %>
+        <%= link_to user_path(@post.user) do %>
+          <%= image_tag @post.user.get_profile_image(30, 30), class: 'rounded-circle border' %>
+        <% end %>
         <%= @post.user.name %>
       </div>
     </div>
@@ -31,7 +33,6 @@
       </div>
     </div>
 
-
     <div class = 'row'>
       <div class = 'col-12 mt-2' style = 'margin-left: 30px;'>
         <% @post.prefecture_relations.each do |pref| %>
@@ -39,7 +40,8 @@
         <% end %>
       </div>
     </div>
-
+    
+    <!--スケジュール・スポット-->
     <% @post.schedules.each do |schedule| %>
       <div class = 'row '>
         <div class = 'col-12 mt-5'>
@@ -54,7 +56,7 @@
             <% if spot.arriving_time.present? %>
               <%= spot.arriving_time.strftime('%H:%M') %>
             <% else %>
-              00:00
+              --:--
             <% end %>
             <div class = 'image ml-2'>
               <%= image_tag spot.get_spot_image(380,267), class: 'img-fluid' %>
@@ -62,9 +64,8 @@
             <% if spot.leaving_time.present? %>
               <%= spot.leaving_time.strftime('%H:%M') %>
             <% else %>
-              00:00
+              --:--
             <% end %>
-
           </div>
 
           <div class = 'col-12 col-lg-6'>
@@ -74,7 +75,8 @@
         </div>
       <% end %>
     <% end %>
-
+    
+    <!--コメント一覧・フォーム-->
     <div class = 'row mt-5'>
       <h2>コメント</h2>
     </div>
@@ -90,7 +92,7 @@
   </div>
 </div>
 
-
+<!--編集・削除ボタン-->
 <div class = 'row my-4'>
   <div class = 'col-12 col-md-9 mx-auto'>
     <div class = 'row'>
@@ -106,6 +108,7 @@
   </div>
 </div>
 
+<!--コメントアイコンクリックでページ最下部へ移動-->
 <script>
   function comment(){
     let elment = document.documentElement;

@@ -10,11 +10,13 @@ class Public::UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts = @user.posts.order(created_at: 'DESC')
     @search = params[:search]
-
+    
+    # 別ユーザーの場合は公開中の投稿のみ表示
     unless current_user == @user
       @posts = @posts.where(status: 0)
     end
-
+    
+    # 表示投稿の切り替え
     if @search == '公開中の投稿'
       @posts = @posts.where(status: 0)
     elsif @search == '下書き'
