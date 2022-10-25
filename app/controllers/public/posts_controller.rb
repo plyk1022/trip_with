@@ -34,16 +34,16 @@ class Public::PostsController < ApplicationController
     if params[:commit] == '下書きに保存'
       @post.status = 1
       if @post.save
-        flash[:notice] = "タイトル「#{post_params[:title]}」を下書きに保存しました。"
+        flash[:notice] = "タイトル「#{post_params[:title]}」を下書きに保存しました"
         redirect_to post_path(@post)
       else
         flash.now[:alert] = '入力内容を確認してください'
         render 'form'
       end
-      
+
     else
       if @post.save(context: :published)
-        flash[:notice] = "タイトル「#{post_params[:title]}」を投稿しました。"
+        flash[:notice] = "タイトル「#{post_params[:title]}」を投稿しました"
         redirect_to post_path(@post)
       else
         flash.now[:alert] = '入力内容を確認してください'
@@ -76,11 +76,11 @@ class Public::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    
+
     if params[:commit] == '下書きに保存'
       @post.attributes = post_params.merge(status: 1)
       if @post.save
-        flash[:notice] = "タイトル「#{post_params[:title]}」を下書きに保存しました。"
+        flash[:notice] = "タイトル「#{post_params[:title]}」を下書きに保存しました"
         redirect_to post_path(@post)
       else
         flash.now[:alert] = '入力内容を確認してください'
@@ -88,16 +88,16 @@ class Public::PostsController < ApplicationController
       end
     else
       @post.attributes = post_params.merge(status: 0)
-      
+
       if @post.save(context: :published)
-        flash[:notice] = "タイトル「#{post_params[:title]}」を投稿しました。"
+        flash[:notice] = "タイトル「#{post_params[:title]}」を投稿しました"
         redirect_to post_path(@post)
       else
         flash.now[:alert] = '入力内容を確認してください'
         render 'form'
       end
     end
-  
+
   end
 
   private
