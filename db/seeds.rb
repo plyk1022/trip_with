@@ -53,37 +53,37 @@ Prefecture.create(name: '沖縄県')
 
 users = User.create!([
   {
-    email: 'trip-taro@test.com', 
-    name: 'トリップ太郎', 
-    introduction: '旅行が趣味です。駅弁も旅行の楽しみ！', 
-    password: 'password', 
-    profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user1.jpeg"), 
+    email: 'trip-taro@test.com',
+    name: 'トリップ太郎',
+    introduction: '旅行が趣味です。駅弁も旅行の楽しみ！',
+    password: 'password',
+    profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user1.jpeg"),
     filename:"sample-user1.jpeg")},
   {
-    email: 'travel-hanako@test.com', 
-    name: 'トラベル花子', 
-    introduction: 'お出かけ記録', 
-    password: 'password', 
-    profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user2.jpeg"), 
+    email: 'travel-hanako@test.com',
+    name: 'トラベル花子',
+    introduction: 'お出かけ記録',
+    password: 'password',
+    profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user2.jpeg"),
     filename:"sample-user2.jpeg")},
   {
-    email: 'toricco@test.com', 
-    name: 'とりっこ@一人旅', 
+    email: 'toricco@test.com',
+    name: 'とりっこ@一人旅',
     introduction: '一人旅記録
-    旅行を楽しみに日々お仕事頑張ってます！', 
-    password: 'password', 
-    profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user3.jpeg"), 
+    旅行を楽しみに日々お仕事頑張ってます！',
+    password: 'password',
+    profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user3.jpeg"),
     filename:"sample-user3.jpeg")},
   {
-    email: 'ryoko-shosinsha@test.com', 
-    name: '旅行初心者', 
+    email: 'ryoko-shoshinsha@test.com',
+    name: '旅行初心者',
     introduction: '投稿少なめ、閲覧メイン。
-    もっといろんなとこに行ってみたい!', 
-    password: 'password', 
-    profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user4.jpeg"), 
+    もっといろんなとこに行ってみたい!',
+    password: 'password',
+    profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user4.jpeg"),
     filename:"sample-user4.jpeg")},
   {
-    email: 'itiro@test.com',
+    email: 'ichiro@test.com',
     name: '旅好き一郎',
     introduction: '自然を求めてよく旅行をしています。
     山登りも好きです。',
