@@ -14,7 +14,9 @@
 
     <div class = 'row'>
       <div class = 'col-12'>
-        <%= image_tag @post.user.get_profile_image(30, 30), class: 'rounded-circle border' %>
+        <%= link_to admin_user_path(@post.user) do %>
+          <%= image_tag @post.user.get_profile_image(30, 30), class: 'rounded-circle border' %>
+        <% end %>
         <%= @post.user.name %>
       </div>
     </div>
