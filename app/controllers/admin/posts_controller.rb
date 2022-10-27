@@ -11,9 +11,10 @@ class Admin::PostsController < ApplicationController
   end
   
   def destroy
-    user = Post.find(params[:id]).user
-    Post.find(params[:id]).destroy
-    redirect_to  admin_user_path(user)
+    post = Post.find(params[:id])
+    post.destroy
+    flash[:alert] = "タイトル「#{post.title}」を削除しました"
+    redirect_to  admin_root_path
   end
   
 end

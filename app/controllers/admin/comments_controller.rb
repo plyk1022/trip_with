@@ -13,7 +13,9 @@ class Admin::CommentsController < ApplicationController
   end
   
   def destroy
-    Comment.find(params[:id]).destroy
+    comment = Comment.find(params[:id])
+    comment.destroy
+    flash[:alert] = "コメント「#{comment.comment}」を削除しました"
     redirect_to request.referer
   end
   
