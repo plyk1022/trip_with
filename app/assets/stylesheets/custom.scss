@@ -87,9 +87,15 @@ input[type="checkbox"] {
   display: contents;
 }
 
-.admin-table-wrap {
+
+@media (max-width: 767px) {
+  .admin-table-wrap {
   overflow-x: scroll;
 }
 .admin-table {
   white-space: nowrap;
 }
+}
+
+
+
