@@ -23,7 +23,26 @@ URL: http://trip-with.site/
 ## 利用イメージ
 
 ### 新規投稿
-![利用イメージ（新規投稿）2](https://user-images.githubusercontent.com/110372008/198562468-db4f8439-411d-4778-a6ab-ad7acc336e35.gif)
+- 入力した開始日・終了日に応じて日数分のフォームを作成
+- スポットの入力フォームは非同期で追加・削除
+
+![利用イメージ（新規投稿）](https://user-images.githubusercontent.com/110372008/198562468-db4f8439-411d-4778-a6ab-ad7acc336e35.gif)
+
+
+### お気に入り/コメント
+- お気に入り/コメントは非同期で反映
+
+![利用イメージ（お気に入り・コメント）](https://user-images.githubusercontent.com/110372008/198698588-324bbd59-4dfc-4d9d-be13-d077d42ada56.gif)
+
+
+
+
+### ゲストログイン
+- ゲストユーザーのみ登録情報の編集不可
+- ゲストユーザーの投稿・コメント・お気に入りはバッチ処理により1時間毎に削除
+
+![利用イメージ（ゲストログイン）](https://user-images.githubusercontent.com/110372008/198694550-361d89e0-6f29-4c0d-9885-c5e116024b83.gif)
+
 
 
 
@@ -49,27 +68,32 @@ https://icooon-mono.com/about-icoon-mono/
 
 
 
-## 言語/フレームワーク
-* ruby 3.1.2
-* Rails 6.1.7
-* gem 'devise'
-* gem 'bootstrap'
-* gem 'kaminari'
-* gem "enum_help"
-* gem 'cocoon'
-* gem 'image_processing'
-* Font Awesome
+## 使用技術
+- ruby 3.1.2
+- Rails 6.1.7
+- gem 'devise'
+- gem 'cocoon'
+- gem 'whenever'
+- gem 'kaminari','~> 1.2.1'
+- gem 'image_processing'
+- Bootstorap 4.5
+- Font Awesome
+
 
 
 ## 機能一覧
-* ゲストログイン機能
-* 会員登録機能
-* 投稿機能
-* 投稿公開・非公開機能
-* タグ検索
-* キーワード検索
-* いいね機能
-* コメント機能
-* 通知機能
-* ユーザー管理機能
-* コメント管理機能
+- ゲストログイン機能
+- バッチ処理（ゲストユーザー投稿等削除）
+- 会員登録機能
+- 投稿機能
+- 下書き機能
+- キーワード検索（タイトル/スポット)
+- 都道府県検索
+- お気に入り機能
+- コメント機能
+- ユーザー管理機能
+  - 管理者ログイン
+  - 投稿管理/削除機能
+  - コメント管理/削除機能
+  - ユーザー退会処理
+  
