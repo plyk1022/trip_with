@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'homes#top'
-    resources :posts, only:[:show, :edit, :destroy]
+    resources :posts, only:[:show, :destroy]
     resources :users, only:[:index, :show, :update]
     resources :comments, only:[:index, :show, :destroy]
   end
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     resources :users, only:[:index, :show, :edit, :update]
 
     get 'posts/form' => 'posts#form', as: 'form'
-    get 'favorites/index', as: 'favorites'
+    get 'favorites' => 'favorites#index', as: 'favorites'
     
     resources :posts do
       resource :favorites, only: [:create, :destroy]
