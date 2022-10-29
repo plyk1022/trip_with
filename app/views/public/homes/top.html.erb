@@ -4,16 +4,19 @@
       <div class = 'col-12'>
         <h2 class = 'text-center'>旅の思い出を共有しよう</h2>
         <p class = 'text-center' style = 'font-size: 40px;'><span class = 'site-name'>Trip-with</span></p>
+        
         <div class = 'row'>
           <div class = 'col-8 col-md-3 mx-auto'>
             <%= link_to '新規登録', new_user_registration_path, class: 'btn btn-block btn-pilled btn-success rounded-pill' %>
           </div>
         </div>
+        
         <div class = 'row mt-3'>
           <div class = 'col-8 col-md-3 mx-auto'>
             <%= link_to 'ログイン', new_user_session_path, class: 'btn btn-block btn-info rounded-pill' %>
           </div>
         </div>
+        
         <div class = 'row mt-3'>
           <div class = 'col-8 col-md-3 mx-auto'>
             <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: 'btn btn-block btn-outline-secondary rounded-pill' %>
@@ -22,7 +25,6 @@
 
         <div class = 'row mt-5'>
           <div class = 'col-12'>
-  
             <h4 class = 'text-center'><span class = 'site-name'>Trip-with</span>とは</h4>
             <p class = 'text-center'>旅行の思い出を写真と共に記録・共有できるサイトです。<br>
             旅行の記録をする、旅行の参考にする、素敵なスポットを見つけるなど、<br>
