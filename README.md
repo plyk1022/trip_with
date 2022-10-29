@@ -26,35 +26,38 @@ URL: http://trip-with.site/
 - 入力した開始日・終了日に応じて日数分のフォームを作成
 - スポットの入力フォームは非同期で追加・削除
 
-![利用イメージ（新規投稿）](https://user-images.githubusercontent.com/110372008/198562468-db4f8439-411d-4778-a6ab-ad7acc336e35.gif)
+![利用イメージ（新規投稿）](https://user-images.githubusercontent.com/110372008/198818593-52225b72-12de-4f21-9f98-cca41a536c2e.gif)
 
 
 ### お気に入り/コメント
 - お気に入り/コメントは非同期で反映
 
-![利用イメージ（お気に入り・コメント）](https://user-images.githubusercontent.com/110372008/198698588-324bbd59-4dfc-4d9d-be13-d077d42ada56.gif)
+![利用イメージ（お気に入り・コメント）](https://user-images.githubusercontent.com/110372008/198818611-f03d66f9-266e-491d-ac39-708b58928f10.gif)
 
 
 ### キーワード/都道府県検索
 - タイトル/スポット名でのキーワード検索
 - 都道府県毎の投稿表示
 
-![利用イメージ（検索）](https://user-images.githubusercontent.com/110372008/198794237-1c3c23ac-8ccd-4cd8-950b-9a9cb6807c85.gif)
+![利用イメージ（検索）](https://user-images.githubusercontent.com/110372008/198818615-06b5f8a4-a05f-432d-8e4d-665704ef6633.gif)
+
 
 
 ### ユーザー管理機能
 - 管理者ログイン
-- ユーザーの投稿・コメント閲覧/削除
+- ユーザーの投稿・コメントの閲覧/削除
 - ユーザー退会処理
 
-![利用イメージ（管理者ログイン）](https://user-images.githubusercontent.com/110372008/198794629-17023088-c2c8-4bfe-a1d8-278ac50affb3.gif)
+![利用イメージ（管理者機能）](https://user-images.githubusercontent.com/110372008/198818618-50830a5c-e7ee-4e19-9e34-a08aa2939467.gif)
+
 
 
 ### ゲストログイン
 - ゲストユーザーのみ登録情報の編集不可
 - ゲストユーザーの投稿・コメント・お気に入りはバッチ処理により1時間毎に削除
 
-![利用イメージ（ゲストログイン）](https://user-images.githubusercontent.com/110372008/198694550-361d89e0-6f29-4c0d-9885-c5e116024b83.gif)
+![利用イメージ（ゲストログイン）](https://user-images.githubusercontent.com/110372008/198818624-8e31effd-ce6b-4aa9-bf2e-3e5912efa6fa.gif)
+
 
 
 
@@ -82,8 +85,14 @@ https://icooon-mono.com/about-icoon-mono/
 
 
 ## 使用技術
-- ruby 3.1.2
+- Ruby 3.1.2
 - Rails 6.1.7
+- MySQL
+- Nginx
+- Puma
+- AWS
+  - EC2
+  - RDS
 - gem 'devise'
 - gem 'cocoon'
 - gem 'whenever'
