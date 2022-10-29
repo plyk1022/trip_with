@@ -35,6 +35,19 @@ URL: http://trip-with.site/
 ![利用イメージ（お気に入り・コメント）](https://user-images.githubusercontent.com/110372008/198698588-324bbd59-4dfc-4d9d-be13-d077d42ada56.gif)
 
 
+### キーワード/都道府県検索
+- タイトル/スポット名でのキーワード検索
+- 都道府県毎の投稿表示
+
+![利用イメージ（検索）](https://user-images.githubusercontent.com/110372008/198794237-1c3c23ac-8ccd-4cd8-950b-9a9cb6807c85.gif)
+
+
+### ユーザー管理機能
+- 管理者ログイン
+- ユーザーの投稿・コメント閲覧/削除
+- ユーザー退会処理
+
+![利用イメージ（管理者ログイン）](https://user-images.githubusercontent.com/110372008/198794629-17023088-c2c8-4bfe-a1d8-278ac50affb3.gif)
 
 
 ### ゲストログイン
