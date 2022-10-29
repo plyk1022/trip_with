@@ -1,11 +1,11 @@
 <div class = 'row'>
   <div class = 'col-11 col-md-9 mx-auto border border-dark border-dark post-show px-5 py-5'>
-
     <div class = 'row'>
       <div class = 'col-12'>
       <h2><%= @post.title %></h2>
       </div>
     </div>
+    
     <div class = 'row'>
       <div class = 'col-12'>
       <p><%= safe_join(@post.body.split("\n"),tag(:br)) %></p>
@@ -29,9 +29,7 @@
       </div>
     </div>
 
-
     <div class = 'row'>
-
       <div class = 'col-12 mt-2' style = 'margin-left: 30px;'>
         <% @post.prefecture_relations.each do |pref| %>
           <span class = 'border p-1 mx-1'><%= pref.prefecture.name %></span>
@@ -45,15 +43,15 @@
           <h2><%=schedule.date.strftime('%Y年 %m月 %d日') %></h2>
         </div>
       </div>
-
       <% schedule.spots.each do |spot| %>
         <div class = 'row mx-auto mt-5'>
           <div class = 'col-12 col-lg-6 border-left border-dark border-dark'>
             <%= spot.arriving_time.strftime('%H:%M') %>
-
+            
             <div class = 'image ml-2'>
               <%= image_tag spot.get_spot_image(380,267), class: 'img-fluid' %>
             </div>
+            
               <%= spot.leaving_time.strftime('%H:%M') %>
           </div>
 
@@ -77,13 +75,14 @@
   </div>
 </div>
 
-
 <div class = 'row my-4'>
   <div class = 'col-12 col-md-9 mx-auto'>
       <%= link_to '投稿を削除', admin_post_path(@post), method: :delete, data: { confirm: "タイトル「#{@post.title}」を削除します。"},  class: 'btn btn-block btn-danger col-6 col-md-3 rounded-pill mx-auto' %>
   </div>
 </div>
 
+
+<!--コメントアイコンクリックで画面最下部へ-->
 <script>
   function comment(){
     let elment = document.documentElement;
