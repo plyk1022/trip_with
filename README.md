@@ -26,14 +26,12 @@ URL: https://trip-with.site/
 - 入力した開始日・終了日に応じて日数分のフォームを作成
 - スポットの入力フォームは非同期で追加・削除
 
-![利用イメージ（新規投稿）](https://user-images.githubusercontent.com/110372008/198818593-52225b72-12de-4f21-9f98-cca41a536c2e.gif)
-
+![利用イメージ（新規投稿）](https://user-images.githubusercontent.com/110372008/200172440-451a851e-4486-479c-9603-b29bbe458c4d.gif)
 
 ### お気に入り/コメント
 - お気に入り/コメントは非同期で反映
 
 ![利用イメージ（お気に入り・コメント）](https://user-images.githubusercontent.com/110372008/198818611-f03d66f9-266e-491d-ac39-708b58928f10.gif)
-
 
 ### キーワード/都道府県検索
 - タイトル/スポット名でのキーワード検索
@@ -41,16 +39,12 @@ URL: https://trip-with.site/
 
 ![利用イメージ（検索）](https://user-images.githubusercontent.com/110372008/198818615-06b5f8a4-a05f-432d-8e4d-665704ef6633.gif)
 
-
-
 ### ユーザー管理機能
 - 管理者ログイン
 - ユーザーの投稿・コメントの閲覧/削除
 - ユーザー退会処理
 
 ![利用イメージ（管理者機能）](https://user-images.githubusercontent.com/110372008/198818618-50830a5c-e7ee-4e19-9e34-a08aa2939467.gif)
-
-
 
 ### ゲストログイン
 - ゲストユーザーのみ登録情報の編集不可
