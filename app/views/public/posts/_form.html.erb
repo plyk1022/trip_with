@@ -24,7 +24,7 @@
           <%= f.collection_check_boxes(:prefecture_ids, Prefecture.all, :id, :name) do |pref| %>
             <div class = 'col-6 col-md-2 select-prefectures'>
               <%= pref.check_box %>
-              <%= pref.text %>
+              <%= pref.label { pref.text } %>
             </div>
           <% end %>
         </div>
