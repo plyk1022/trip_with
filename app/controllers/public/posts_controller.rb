@@ -1,6 +1,6 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_current_user, only: [:edit]
+  before_action :ensure_current_user, only: [:edit, :update, :destroy]
 
   def new
     @post = Post.new
@@ -9,13 +9,13 @@ class Public::PostsController < ApplicationController
 
   def form
     @post = Post.new(post_params)
-    
+
     # 開始日と終了日の内容チェック
     if @post.start_date > @post.end_date
       flash.now[:alert] = '終了日は開始日より遅い日付を入力してください'
       render 'new'
     end
-    
+
     # 開始日と入力日から旅行日数を計算、日数分のフォームを作成
     @trip_days = (@post.end_date - @post.start_date).to_i + 1
     date = @post.start_date
@@ -32,7 +32,7 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    
+
     # 「下書きに保存」ボタンの場合
     if params[:commit] == '下書きに保存'
       @post.status = 1
@@ -79,7 +79,7 @@ class Public::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    
+
     # 「下書きに保存」ボタンの場合
     if params[:commit] == '下書きに保存'
       @post.attributes = post_params.merge(status: 1)
