@@ -70,6 +70,7 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    ensure_current_user if @post.status == 1
     @post_comment = Comment.new
   end
 
