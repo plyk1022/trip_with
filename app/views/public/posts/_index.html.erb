@@ -21,7 +21,7 @@
         </div>
         <div class = 'col-8 col-md-4'>
           <%= post.user.name %><br>
-          <%= post.created_at.strftime('%Y月%m日%d日') %>
+          <%= "投稿日：" + post.created_at.strftime('%Y月%m日%d日') %>
         </div>
   
         <div class = 'col-12 col-md-7 mt-2 text-right'>
@@ -39,6 +39,7 @@
       <div class = 'row'>
         <div class = 'col-12'>
           <p><%= safe_join(post.body.split("\n"),tag(:br)) %></p>
+          <p><%= post.start_date.strftime('%Y月%m日%d日') %> 〜　<%= post.end_date.strftime('%Y月%m日%d日') %></p>
         </div>
       </div>
   
